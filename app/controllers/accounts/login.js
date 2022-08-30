@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+    service:Ember.inject.service('common-service'),
     id:"",
     password:"",
     errorMessage:"",
@@ -22,7 +23,7 @@ export default Ember.Controller.extend({
             let requestJSON=JSON.stringify({username:this.id,password:this.password});
             console.log(requestJSON)
             $.post(
-                "http://localhost:8080/VaccinationApp/api/accounts/authentication",
+                this.get('service').getRequestURL()+"/accounts/authentication",
                 requestJSON,
                 (data)=>
                 {

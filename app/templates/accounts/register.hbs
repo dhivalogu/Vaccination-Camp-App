@@ -1,1 +1,52 @@
-{{outlet}}
+<div class="form-container">
+  <div class="title header__title">
+    Register Today & Get Vaccinated Soon
+  </div>
+  <form {{action "register" on="submit"}}>
+    <div class="form__input">
+      <div class="input-field">
+        <span class="label">Aadhar ID</span>
+        {{input
+          value=aadharID
+          pattern="[2-9]{1}[0-9]{11}"
+          title="Enter a valid Aadhar ID"
+          required=true
+        }}
+      </div>
+
+      <div class="input-field">
+        <span class="label">First Name</span>
+        {{input
+          value=firstName
+          pattern="[A-Za-z]{3,15}"
+          title="Enter a valid name"
+        }}
+      </div>
+
+      <div class="input-field">
+        <span class="label">Last Name</span>
+        {{input
+          value=lastName
+          pattern="[A-Za-z]{3,15}"
+          title="Enter a valid name"
+        }}
+      </div>
+      <div class="input-field">
+        <span class="label">Date Of Birth</span>
+        {{input value=dob}}
+      </div>
+      <div class="input-field">
+        <span class="label">Mobile</span>
+        {{input
+          value=mobile
+          pattern="[1-9]{1}[0-9]{9}"
+          title="Enter a valid 10 digit mobile number"
+        }}
+      </div>
+      <div
+        class="error {{if isError 'visible' 'hidden'}}"
+      >{{errorMessage}}</div>
+      <button class="button button--primary">Register</button>
+    </div>
+  </form>
+</div>
