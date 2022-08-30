@@ -1,24 +1,23 @@
 <div class="form-container">
   <div class="form__header">
-        LOGIN
+    LOGIN
   </div>
   <div class="form__input">
-        <div class="input-field">
-            <span class="label">User ID</span>
-            {{input value=id}}
-        </div>
-        <div class="input-field">
-            <span class="label">Password</span>
-            {{input type="password" value=password}}
-        </div>
-        <button class="button--primary">Log in</button>
+    <div class="input-field">
+      <span class="label">User ID</span>
+      {{input value=id pattern="[A-Za-z]{3}"}}
+    </div>
+    <div class="input-field">
+      <span class="label">Password</span>
+      {{input type="password" value=password}}
+    </div>
+    <div class="error {{if isError 'visible' 'hidden'}}">{{errorMessage}}</div>
+    <button class="button button--primary" {{action "authenticate"}}>Log in</button>
   </div>
+
   <div class="form__footer">
-    <p>Don't have an account? Click Here !</p>
+    <p>Don't have an account?
+      {{#link-to "accounts.register" class="link"}}Click Here{{/link-to}}</p>
   </div>
 
 </div>
-    
-
-
-

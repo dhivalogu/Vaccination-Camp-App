@@ -3,6 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
     beforeModel()
     {
-        this.transitionTo('accounts.login');
+        console.log(localStorage.getItem("user_id"));
     }
 });
