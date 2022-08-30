@@ -15,7 +15,6 @@ export default Ember.Controller.extend({
         register()
         {
             
-            
             let requestJSON=JSON.stringify({
 
                 AADHAR:this.get('aadharID'),
@@ -32,8 +31,13 @@ export default Ember.Controller.extend({
                 requestJSON,
                 (data,status)=>
                 {
-                    console.log(data);
-                    console.log(status);
+                    let responseJSON=JSON.parse(data);
+                    console.log(responseJSON.ID)
+                    if(responseJSON.ID==this.get('aadharID'))
+                    {
+                        const modal=document.getElementById('registration-modal-container');
+                        modal.style.display='flex';
+                    }
                 }
                 
             )

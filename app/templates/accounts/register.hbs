@@ -49,4 +49,18 @@
       <button class="button button--primary">Register</button>
     </div>
   </form>
+  <div id="registration-modal-container" class="hidden">
+    <div class="modal">
+      <h1>Welcome to <div class="text--contrast">Mandrine</div></h1>
+      <div class="success__image"></div>
+      <h3>Your Account Has Been Created Successfully</h3>
+      <h5><div class="text--contrast">User ID</div>: Aadhar ID &ensp;<div
+          class="text--contrast"
+        >Password</div>: Combination of last 4 digits of your Aadhar ID and
+        Mobile Number</h5>
+      {{#link-to "accounts.login" class="link"}}Go to Login Page
+      {{/link-to}}
+    </div>
+
+  </div>
 </div>
