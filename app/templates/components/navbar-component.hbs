@@ -1,0 +1,19 @@
+<div class="sidebar">
+
+  {{#each content as |content|}}
+
+    {{#link-to content.link}}
+      <div class="nav-content">
+        <div class="icon nav-content__icon">
+          <span class="material-symbols-rounded">
+            {{content.icon}}
+          </span>
+        </div>
+        <div class="nav-content__text">
+          {{content.text}}
+        </div>
+
+      </div>
+    {{/link-to}}
+  {{/each}}
+</div>

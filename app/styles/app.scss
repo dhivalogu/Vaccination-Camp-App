@@ -1,8 +1,9 @@
 @use 'mixin' as m;
-$primary-color:#BEFFD1;
+$primary-color:rgb(76, 127, 222);
 $secondary-color:black;
 $contrast-color:rgb(76, 127, 222);
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Rubik+Maze&family=Secular+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200');
 *{
     margin:0px;
     padding:0px;
@@ -72,7 +73,7 @@ body
     flex-direction: column;
     height: 100%;
     width: 50%;
-    background-color: $primary-color;
+    background:linear-gradient(to right,rgb(173, 200, 255),rgb(121, 164, 250));
     border-radius: 8px;
     
     @media screen and (max-width:480px) {
@@ -94,7 +95,7 @@ body
     .card__content__footer
     {
         font-family: 'Rubik Maze', cursive;
-        font-size:1.5rem;
+        font-size:1.7rem;
         @include m.flex-center;
         
     }
@@ -285,4 +286,42 @@ input
     color: $contrast-color;
     display: inline-block;
     text-align: center;
+}
+
+.sidebar
+{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(to right,$contrast-color,rgb(121, 164, 250));
+    box-shadow: 0px 0px 2px 2px rgb(168, 168, 168);
+    color: white;
+
+    a {
+        text-decoration: none;
+    }
+
+    .nav-content
+    {
+        @include m.flex-center;
+        color: white;
+        flex-direction: column;
+        text-align: center;
+        font-size: .7rem;
+        height: 10%;
+        margin: 5px 0px 5px 0px;
+        width: 100%;
+        transition: all 0.5s ease-out;
+        &:hover
+        {
+            color: $secondary-color;
+        }
+    }
+    @include m.flex-center;
+    flex-direction: column;
+}
+
+.home__container
+{
+    display: grid;
+    grid-template-columns: 6% 94%;
 }
