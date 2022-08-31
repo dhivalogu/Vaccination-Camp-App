@@ -8,7 +8,7 @@ export default Ember.Controller.extend({
     isError:false,
     isCredentialValid()
     {
-        let idRegex= new RegExp("[a-z\d]{5,12}");
+        let idRegex= new RegExp("[a-z0-9]{5,12}");
         let passwordRegex= new RegExp("[a-zA-Z0-9]{8,12}");
         console.log(passwordRegex.test(this.get('password')));
         if(idRegex.test(this.get('id'))&& passwordRegex.test(this.get('password'))) return true;

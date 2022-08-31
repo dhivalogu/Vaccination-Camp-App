@@ -5,6 +5,45 @@
         My Profile
         {{material-icon icon="person"}}
       </div>
+      <div class="section__content">
+        <div class="picture">
+          {{material-icon icon="account_circle"}}
+        </div>
+        {{profile-data
+          class="profile-data"
+          icon="fingerprint"
+          name="Aadhar ID"
+          value=model.AadharID
+        }}
+        {{profile-data
+          class="profile-data"
+          icon="badge"
+          name="First Name"
+          value=model.firstName
+        }}
+        {{profile-data
+          class="profile-data"
+          icon="badge"
+          name="Last Name"
+          value=model.lastName
+        }}
+        {{profile-data
+          class="profile-data"
+          icon="cake"
+          name="Date of Birth"
+          value=model.DOB
+        }}
+        {{profile-data
+          class="profile-data"
+          icon="phone_iphone"
+          name="Mobile"
+          value=model.mobile
+        }}
+        <button class="button button--primary" {{action "logout"}}>
+          {{material-icon icon="logout"}}
+          Log Out
+        </button>
+      </div>
     </div>
   </div>
   <div class="history">

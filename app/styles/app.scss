@@ -330,7 +330,7 @@ input
     margin-left: 20px;
     display: grid;
     height: 100%;
-    grid-template-columns:50% 50%;
+    grid-template-columns:30% 70%;
     grid-template-rows: 50% 50%;
     .card
     {
@@ -356,10 +356,49 @@ input
         }
 
     }
+    .section__content
+    {
+        @include m.flex-center;
+        flex-direction: column;
+        height: 90%;
+    }
     .profile 
     {
         grid-row: 1/3;
         @include m.flex-center;
+        .picture
+            {
+                .material-symbols-rounded
+                {
+                    font-size: 170px;
+                    color: rgb(255, 122, 122);
+                }
+            }
+        .profile-data
+        {
+            @include m.flex-center;
+            flex-direction: row;
+            justify-content: flex-start;
+            width: 100%;
+            div {
+                margin: 0px 5px 0px 5px;
+            }
+            .icon
+            {
+                color: rgb(255, 122, 122);
+                width: 20%;
+            }
+            .name 
+            {
+                color: $primary-color;
+                width: 30%;
+            }
+            
+        }
+        .button
+        {
+            width: 50%;
+        }
     }
     .history
     {
