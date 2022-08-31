@@ -345,11 +345,15 @@ input
     }
     .section__header
     {
-        background-color: rgb(221, 221, 221);
+        background: linear-gradient(to right,rgb(37, 37, 37),rgb(70, 70, 70));
         @include m.flex-center;
-        height: 8%;
-        font-size: 1.1rem;
-        font-weight: bold;
+        height: 5vh;
+        font-size: 1rem;
+        color: white;
+        .icon
+        {
+            padding: 0px 10px 0px 10px;
+        }
 
     }
     .profile 
@@ -373,4 +377,9 @@ input
             height: 80%;
         }
     }
+}
+
+.icon 
+{
+    padding: 5px;
 }
