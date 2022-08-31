@@ -17,6 +17,10 @@ export default Ember.Route.extend({
     setupController(controller,model)
     {
         controller.set('model',JSON.parse(model));
+    },
+    afterModel()
+    {
+      this.transitionTo('user.profile');
     }
     
 });

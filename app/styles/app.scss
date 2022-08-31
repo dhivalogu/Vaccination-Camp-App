@@ -416,6 +416,54 @@ input
             height: 80%;
         }
     }
+
+    .booking-details__container
+    {
+        display: flex;
+        width: 100%;
+        height: 80%;
+        flex-direction: column;
+        .header 
+            {
+                height: 15%;
+                font-weight: bold;
+                display: flex;
+                background-color: rgb(234, 234, 234);
+                color:$primary-color;
+                border-bottom: 0.5px solid rgb(198, 198, 198);
+
+                div 
+                {
+                    @include m.flex-center;
+                }   
+            }
+        .booking-details
+        {
+            display: flex;
+            background-color: rgb(234, 234, 234);
+            height: 25%;
+            color:rgb(0, 0, 0);
+            border-bottom: 0.5px solid rgb(198, 198, 198);
+
+            div 
+            {
+                @include m.flex-center;
+            }
+        }
+        .id 
+        {
+            width: 10%;
+        }
+        .date,.city 
+        {
+            width: 15%;
+        }
+        .address,.session
+        {
+            width: 30%;
+        }
+
+    }
 }
 
 .icon 
