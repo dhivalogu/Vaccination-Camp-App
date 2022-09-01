@@ -166,6 +166,42 @@ body
         width: 100%;
         @include m.flex-center;
     }
+    .select-field
+    {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        height: 20%;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        border-radius: 15px;
+        .name
+        {
+            @include m.flex-center;
+            width: 50%;
+            margin: 15px;
+        }
+        select 
+        {
+            height: 80%;
+            width: 50%;
+            margin-left: 30px;
+            border-radius: 15px;
+            background:linear-gradient(to right,rgb(116, 166, 208),$primary-color);
+            color: rgb(255, 255, 255);
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: bold;
+            @include m.flex-center;
+        }
+        option 
+        {
+            color: black;
+            background-color: #ffd9d9;
+            border-radius: 15px;
+        }
+    }
     .brand__header
     {
         font-family: 'Secular One', sans-serif;
@@ -183,6 +219,7 @@ body
         @include m.flex-center;
         flex-direction: column;
         width: 100%;
+        height: 80%;
         
     }
     
@@ -514,6 +551,30 @@ input
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        background:linear-gradient(to right,white,rgb(210, 210, 210));
+        position: relative;
+        overflow: hidden;
+        .image 
+        {
+            position: absolute;
+            left: 10px;
+            bottom: 20px;
+            background:url("/assets/images/vaccine.png");
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 5px;
+        }
+    }
+    .form__input
+    {
+       
+        margin: 0px;
+    }
+    form 
+    {
+        height: 90%;
     }
 
 }

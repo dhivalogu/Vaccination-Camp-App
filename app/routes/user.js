@@ -12,15 +12,24 @@ export default Ember.Route.extend({
     },
     model()
     {
+      
       return $.get(this.get('service').getRequestURL()+"/people/"+localStorage.getItem('user_id'));
     },
     setupController(controller,model)
     {
+        
         controller.set('model',JSON.parse(model));
     },
     afterModel()
     {
       this.transitionTo('user.profile');
+    },
+    actions:
+    {
+      invModel()
+      {
+        this.refresh();
+      }
     }
     
 });

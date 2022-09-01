@@ -14,5 +14,10 @@ export default Ember.Controller.extend({
             link:"user.registration"
 
         }
-    ]
+    ],
+    refreshModel()
+    {
+            console.log("At User Controller");
+            this.send('invModel');
+    }
 });

@@ -2,9 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
 
-    
+    service:Ember.inject.service('common-service'),
     setupController(controller,model)
     {
+       
         let bookingHistory=this.controllerFor('user').get('model')['bookingList'].filter((booking)=>{
             return booking.status=="VACCINATED";
         });
