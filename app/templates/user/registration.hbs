@@ -6,7 +6,16 @@
       </div>
       <form>
         <div class="form__input">
+          <div class="input-field">
+            <select onchange={{action "selectVehicle" value="target.value"}}>
 
+              {{#each names as |vehicleChoice|}}
+
+                <option value={{vehicleChoice}}>{{vehicleChoice}}</option>
+
+              {{/each}}
+            </select>
+          </div>
         </div>
       </form>
     </div>
