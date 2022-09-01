@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
         {
             text:"Register for Vaccination",
             icon:"vaccines",
-            link:"user.profile"
+            link:"user.registration"
 
         }
     ]
