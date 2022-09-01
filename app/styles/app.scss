@@ -297,8 +297,12 @@ input
 
     a {
         text-decoration: none;
+        .active
+    {
+        color: $secondary-color;
     }
-
+    }
+    
     .nav-content
     {
         @include m.flex-center;
@@ -332,6 +336,7 @@ input
     height: 100%;
     grid-template-columns:30% 70%;
     grid-template-rows: 50% 50%;
+    
     .card
     {
         width: 95%;
@@ -361,6 +366,10 @@ input
         @include m.flex-center;
         flex-direction: column;
         height: 90%;
+        .icon 
+            {
+                color:$primary-color;
+            }
     }
     .profile 
     {
@@ -423,6 +432,15 @@ input
         width: 100%;
         height: 80%;
         flex-direction: column;
+        .center 
+        {
+            align-items: center;
+            justify-content: center;
+        }
+        .icon 
+            {
+                color:$primary-color;
+            }
         .header 
             {
                 height: 15%;
@@ -461,6 +479,19 @@ input
         .address,.session
         {
             width: 30%;
+        }
+        .no-record__message
+        {
+            height: 100%;
+            width: 100%;
+            @include m.flex-center;
+            flex-direction: column;
+            .button
+            {
+                width: 20%;
+                
+            }
+            
         }
 
     }

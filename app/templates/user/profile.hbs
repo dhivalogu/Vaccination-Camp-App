@@ -54,18 +54,24 @@
         {{material-icon icon="history"}}
       </div>
       <div class="booking-details__container">
-        <div class="header">
+        {{#if hasBookingHistory}}
+          <div class="header">
+            <div class="id">Booking ID</div>
+            <div class="date">Date</div>
+            <div class="city">City</div>
+            <div class="address">Location</div>
+            <div class="session">Session</div>
+          </div>
+          {{#each bookingHistory as |booking|}}
+            {{booking-details class="booking-details" booking=booking}}
+          {{/each}}
+        {{else}}
+          <div class="no-record__message">
 
-          <div class="id">Booking ID</div>
-          <div class="date">Date</div>
-          <div class="city">City</div>
-          <div class="address">Location</div>
-          <div class="session">Session</div>
+            No Booking History Found
 
-        </div>
-        {{#each bookingHistory as |booking|}}
-          {{booking-details class="booking-details" booking=booking}}
-        {{/each}}
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>
@@ -76,18 +82,32 @@
         {{material-icon icon="event_upcoming"}}
       </div>
       <div class="booking-details__container">
-        <div class="header">
 
-          <div class="id">Booking ID</div>
-          <div class="date">Date</div>
-          <div class="city">City</div>
-          <div class="address">Location</div>
-          <div class="session">Session</div>
+        {{#if hasUpcomingBooking}}
+          <div class="header">
 
-        </div>
-        {{#each upcomingBooking as |booking|}}
-          {{booking-details class="booking-details" booking=booking}}
-        {{/each}}
+            <div class="id">Booking ID</div>
+            <div class="date">Date</div>
+            <div class="city">City</div>
+            <div class="address">Location</div>
+            <div class="session">Session</div>
+
+          </div>
+          {{#each upcomingBooking as |booking|}}
+            {{booking-details class="booking-details" booking=booking}}
+          {{/each}}
+
+        {{else}}
+          <div class="no-record__message">
+
+            There are no upcoming bookings.
+            {{#link-to "user" class="button button--primary"}}{{material-icon
+                icon="how_to_reg"
+              }}
+              Book Now
+            {{/link-to}}
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>
