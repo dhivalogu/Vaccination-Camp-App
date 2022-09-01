@@ -5,6 +5,8 @@ export default Ember.Controller.extend({
     userController:Ember.inject.controller('user'),
     date:"",
     sessionData:["Morning(7 AM to 11 AM)","Noon(12 PM to 3PM)","Evening(4 PM to 6PM)"],
+    cityNotSelected :true,
+    errorMessage:"No Error",
     actions: {
            selectCity(cityID) {
              let selectedCity=this.get('cityData').find((city)=> city.cityID==cityID);
@@ -14,6 +16,9 @@ export default Ember.Controller.extend({
              console.log("Camp",this.get('camp'));
              this.set('availDates',this.get('camp.availDate'));
              console.log(this.get('availDates'));
+             document.getElementById('regDate').classList.remove('hidden');
+             document.getElementById('regSession').classList.remove('hidden');
+             document.getElementById('regButton').classList.remove('hidden');
             },
             selectDate(date)
             {
@@ -45,9 +50,12 @@ export default Ember.Controller.extend({
                 );
                 
             },
-            test()
+            triggerError()
             {
-                
+                document.getElementById('registrationError').style.display='flex';
+                setTimeout(function() {
+                    $('#registrationError').fadeOut(1000);
+                }, 1000);
             }
          }
 });

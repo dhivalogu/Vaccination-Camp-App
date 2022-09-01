@@ -186,13 +186,12 @@ body
         {
             height: 80%;
             width: 50%;
-            margin-left: 30px;
             border-radius: 15px;
-            background:linear-gradient(to right,rgb(116, 166, 208),$primary-color);
-            color: rgb(255, 255, 255);
+            background: linear-gradient(to bottom ,$primary-color,rgb(121, 181, 255));
             font-size: 0.9rem;
             text-align: center;
             font-weight: bold;
+            color: white;
             @include m.flex-center;
         }
         option 
@@ -272,7 +271,7 @@ input
 }
 .hidden
 {
-    display: none ;
+    visibility: hidden;
 }
 
 .blur
@@ -280,6 +279,19 @@ input
     filter: blur(10px);
 }
 
+.modal__container
+{
+    
+    position:fixed;
+    width: 30vw;
+    height: 10vh;
+    background-color: #ffffff;
+    top:10px;
+    box-shadow: 0px 0px 5px 2px rgb(255, 175, 175);
+    @include m.flex-center;
+    display: none;
+    transition: all 1s ease-out;
+}
 #registration-modal-container
 {
     position: fixed;
@@ -551,7 +563,7 @@ input
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background:linear-gradient(to right,white,rgb(210, 210, 210));
+        background:linear-gradient(to right,white,rgb(203, 203, 203));
         position: relative;
         overflow: hidden;
         .image 
