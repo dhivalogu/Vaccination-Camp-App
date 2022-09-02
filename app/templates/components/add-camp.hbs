@@ -1,0 +1,32 @@
+<div class="container camp-container">
+  <div class="form-container">
+
+    <form>
+
+      <div class="form__input">
+        <div class="title header__title">
+          Setup a new Camp
+        </div>
+        <div class="location">
+          <div class="input-field">
+            <span class="label">Camp Location</span>
+            {{input value=address}}
+          </div>
+        </div>
+        <div class="date-range">
+          <div class="input-field">
+            <span class="label">From</span>
+            {{input type="date" value=fromDate required=true}}
+          </div>
+          <div class="input-field">
+            <span class="label">To</span>
+            {{input type="date" value=toDate key-press="test" required=true}}
+          </div>
+        </div>
+        <button {{action "test"}} class="button button--primary">Create</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
         {
             text:"Manage",
             icon:"vaccines",
-            link:"admin"
+            link:"admin.manage"
         }
     ],
 });

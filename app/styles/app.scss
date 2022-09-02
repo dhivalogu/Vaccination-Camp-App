@@ -1,647 +1,668 @@
-@use 'mixin' as m;
-$primary-color:rgb(76, 127, 222);
-$secondary-color:black;
-$contrast-color:rgb(76, 127, 222);
-$silver-gradient:linear-gradient(to right,white,rgb(203, 203, 203));
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Rubik+Maze&family=Secular+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200');
-*{
-    margin:0px;
-    padding:0px;
-    border:0px;
-    font-family: 'Inter',sans-serif;
+@use "mixin" as m;
+$primary-color: rgb(76, 127, 222);
+$secondary-color: black;
+$contrast-color: rgb(76, 127, 222);
+$silver-gradient: linear-gradient(to right, white, rgb(203, 203, 203));
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Rubik+Maze&family=Secular+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200");
+* {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+  font-family: "Inter", sans-serif;
 }
-body
-{
-    height: 100vh;
-    background:url("/assets/images/background.jpg");
-    background-size: cover;
-    background-position: center;
+body {
+  height: 100vh;
+  background: url("/assets/images/background.jpg");
+  background-size: cover;
+  background-position: center;
 }
-.flex-container
-{
+.flex-container {
+  height: 100vh;
+  width: 100vw;
+  @include m.flex-center;
+}
+.card {
+  width: 80%;
+  height: 80%;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  box-shadow: 0px 0px 15px 2px rgb(218, 216, 216);
+  display: flex;
+  flex-direction: row;
+  @media screen and (max-width: 480px) {
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
-    @include m.flex-center;
+  }
 }
-.card
-{
-    width: 80%;
+.card__form {
+  height: 100%;
+  width: 50%;
+  @include m.flex-center;
+  flex-direction: column;
+  position: relative;
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    height: 50%;
+  }
+  .card__form__image {
+    padding: 2rem;
+    background: url("/assets/images/little-doctor.png");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10%;
+    height: 10%;
+    z-index: 1;
+  }
+}
+.card__content {
+  @include m.flex-center;
+  flex-direction: column;
+  height: 100%;
+  width: 50%;
+  background: linear-gradient(to right, rgb(173, 200, 255), rgb(121, 164, 250));
+  border-radius: 8px;
+
+  @media screen and (max-width: 480px) {
+    width: 100%;
+    height: 50%;
+  }
+  .card__content__image {
+    background: url("/assets/images/content-image.png");
+    height: 65%;
+    width: 65%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .card__content__footer {
+    font-family: "Rubik Maze", cursive;
+    font-size: 1.7rem;
+    @include m.flex-center;
+  }
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.card__header {
+  font-family: "Secular One", sans-serif;
+  transition: all 1.5s;
+  &:hover {
+    @include m.transform;
+  }
+}
+
+.input-field {
+  width: 50%;
+  margin: 0.5rem;
+  height: 60px;
+  @include m.flex-center;
+  flex-direction: column;
+  .label {
+    align-self: flex-start;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: $contrast-color;
+  }
+  input {
+    border: 2px solid gray;
+    box-shadow: 0px 0px 2px 1px rgb(210, 210, 210);
+    border-radius: 5px;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    &:focus {
+      border: 2px solid $primary-color;
+      background-color: #000000;
+      color: white;
+    }
+  }
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  form {
+    width: 100%;
+    @include m.flex-center;
+  }
+  .select-field {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    border-radius: 15px;
+    .name {
+      @include m.flex-center;
+      width: 50%;
+      margin: 15px;
+    }
+    select {
+      height: 80%;
+      width: 50%;
+      border-radius: 15px;
+      background: linear-gradient(
+        to bottom,
+        $primary-color,
+        rgb(121, 181, 255)
+      );
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: bold;
+      color: white;
+      @include m.flex-center;
+    }
+    option {
+      color: black;
+      background-color: #ffd9d9;
+      border-radius: 15px;
+    }
+  }
+  .brand__header {
+    font-family: "Secular One", sans-serif;
+    width: 100%;
+    @include m.flex-center;
+  }
+  .header__title {
+    font-family: "Inter", sans-serif;
+    font-size: 1.2rem;
+  }
+  .form__input {
+    margin: 3em;
+    @include m.flex-center;
+    flex-direction: column;
+    width: 100%;
     height: 80%;
-    background-color: rgb(255, 255, 255);
+  }
+}
+.link {
+  text-decoration: none;
+  font-weight: 600;
+  color: $contrast-color;
+}
+.button {
+  cursor: pointer;
+  width: 80px;
+  height: 35px;
+  border-radius: 8px;
+  transition: all 0.5s ease-out;
+  font-weight: bold;
+}
+
+.button--primary {
+  background-color: $secondary-color;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  @include m.flex-center;
+  margin: 15px;
+  box-shadow: 0px 0px 1px 1px rgb(168, 168, 168);
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+}
+
+input {
+  border: none;
+}
+.error {
+  color: rgb(220, 53, 53);
+  margin: 10px;
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+}
+.visible {
+  display: block;
+}
+.hidden {
+  visibility: hidden;
+}
+
+.blur {
+  filter: blur(10px);
+}
+
+.modal__container {
+  position: fixed;
+  width: 30vw;
+  height: 10vh;
+  background-color: #ffffff;
+  top: 10px;
+  box-shadow: 0px 0px 5px 2px rgb(255, 175, 175);
+  @include m.flex-center;
+  display: none;
+  transition: all 1s ease-out;
+}
+#registration-modal-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  backdrop-filter: blur(15px);
+  .modal {
+    background-color: white;
+    width: 50%;
+    height: 80%;
     border-radius: 8px;
+    backdrop-filter: blur(5px);
+    @include m.flex-center;
+    flex-direction: column;
+    padding: 1%;
+    .success__image {
+      width: 80%;
+      height: 70%;
+      background-image: url("/assets/images/success.jpg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    h1,
+    h3,
+    h5 {
+      margin: 5px;
+    }
+  }
+}
+
+.text--contrast {
+  color: $contrast-color;
+  display: inline-block;
+  text-align: center;
+}
+
+.sidebar {
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to right, $contrast-color, rgb(121, 164, 250));
+  color: white;
+
+  a {
+    text-decoration: none;
+    color: white;
+    &:active {
+      color: black;
+    }
+    .active {
+      color: black;
+    }
+  }
+  .active {
+    color: #000000;
+  }
+
+  .nav-content {
+    @include m.flex-center;
+    flex-direction: column;
+    text-align: center;
+    font-size: 0.8rem;
+    height: 10%;
+    margin: 15px 0px 15px 0px;
+    width: 100%;
+    transition: all 0.5s ease-out;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  @include m.flex-center;
+  flex-direction: column;
+}
+
+.home__container {
+  display: grid;
+  grid-template-columns: 6% 94%;
+}
+
+.profile__container {
+  margin-left: 20px;
+  display: grid;
+  height: 100%;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 50% 50%;
+
+  .card {
+    width: 95%;
+    height: 90%;
+    background-color: rgb(255, 255, 255);
+    border-radius: 25px;
     box-shadow: 0px 0px 15px 2px rgb(218, 216, 216);
     display: flex;
-    flex-direction: row;
-    @media screen and (max-width:480px) {
-
-        flex-direction: column;
-        height: 100vh;
-        width: 100vw;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .section__header {
+    background: linear-gradient(to right, rgb(37, 37, 37), rgb(70, 70, 70));
+    @include m.flex-center;
+    height: 5vh;
+    font-size: 1rem;
+    color: white;
+    .icon {
+      padding: 0px 10px 0px 10px;
     }
-}
-.card__form
-{
-    height: 100%;
-    width: 50%;
+  }
+  .section__content {
     @include m.flex-center;
     flex-direction: column;
+    height: 90%;
+    .icon {
+      color: $primary-color;
+    }
+  }
+  .profile {
+    grid-row: 1/3;
+    @include m.flex-center;
+    .picture {
+      .material-symbols-rounded {
+        font-size: 170px;
+        color: rgb(255, 122, 122);
+      }
+    }
+    .profile-data {
+      @include m.flex-center;
+      flex-direction: row;
+      justify-content: flex-start;
+      width: 100%;
+      div {
+        margin: 0px 5px 0px 5px;
+      }
+      .icon {
+        color: rgb(255, 122, 122);
+        width: 20%;
+      }
+      .name {
+        color: $primary-color;
+        width: 30%;
+      }
+    }
+    .button {
+      width: 50%;
+    }
+  }
+  .history {
+    @include m.flex-center;
+    .card {
+      height: 80%;
+    }
+  }
+  .upcoming {
+    @include m.flex-center;
+    .card {
+      height: 80%;
+    }
+  }
+
+  .booking-details__container {
+    display: flex;
+    width: 100%;
+    height: 80%;
+    flex-direction: column;
+    .center {
+      align-items: center;
+      justify-content: center;
+    }
+    .icon {
+      color: $primary-color;
+    }
+    .header {
+      height: 15%;
+      font-weight: bold;
+      display: flex;
+      background-color: rgb(234, 234, 234);
+      color: $primary-color;
+      border-bottom: 0.5px solid rgb(198, 198, 198);
+
+      div {
+        @include m.flex-center;
+      }
+    }
+    .booking-details {
+      display: flex;
+      background-color: rgb(234, 234, 234);
+      height: 25%;
+      color: rgb(0, 0, 0);
+      border-bottom: 0.5px solid rgb(198, 198, 198);
+
+      div {
+        @include m.flex-center;
+      }
+    }
+    .id {
+      width: 10%;
+    }
+    .date,
+    .city {
+      width: 15%;
+    }
+    .address,
+    .session {
+      width: 30%;
+    }
+    .no-record__message {
+      height: 100%;
+      width: 100%;
+      @include m.flex-center;
+      flex-direction: column;
+      .button {
+        width: 20%;
+      }
+    }
+  }
+}
+
+.icon {
+  padding: 5px;
+}
+
+.registration__container {
+  width: 100%;
+  height: 100%;
+  @include m.flex-center;
+  .card {
+    width: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, white, rgb(203, 203, 203));
     position: relative;
-    @media screen and (max-width:480px) {
-
-        width: 100%;
-        height: 50%;
-        
+    overflow: hidden;
+    .image {
+      position: absolute;
+      left: 10px;
+      bottom: 20px;
+      background: url("/assets/images/vaccine.png");
+      width: 200px;
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 5px;
     }
-    .card__form__image
-    {
-        padding: 2rem;
-        background: url("/assets/images/little-doctor.png");
-        background-size: cover;
-        background-position: center;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        width: 10%;
-        height: 10%;
-        z-index: 1;
-    }
-
+  }
+  .form__input {
+    margin: 0px;
+  }
+  form {
+    height: 90%;
+  }
 }
-.card__content
-{
-    @include m.flex-center;
-    flex-direction: column;
+.container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.camp-container {
+  .card {
+    width: 50%;
+    background: $silver-gradient;
+  }
+  .select-field {
+    height: 60%;
+  }
+  .input-field {
+    width: 100%;
     height: 100%;
-    width: 50%;
-    background:linear-gradient(to right,rgb(173, 200, 255),rgb(121, 164, 250));
-    border-radius: 8px;
-    
-    @media screen and (max-width:480px) {
-
-        width: 100%;
-        height: 50%;
-        
+  }
+  .button {
+    margin: 30px;
+  }
+  form {
+    height: 100%;
+  }
+  .form-container {
+    .form-input {
+      margin: 1rem;
+      height: 100%;
     }
-    .card__content__image
-    {
-        background: url("/assets/images/content-image.png");
-        height: 65%;
-        width: 65%;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
-        
-    }
-    .card__content__footer
-    {
-        font-family: 'Rubik Maze', cursive;
-        font-size:1.7rem;
-        @include m.flex-center;
-        
-    }
-
-    
-}
-
-.title
-{
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-.card__header
-{
-    font-family: 'Secular One', sans-serif;
-    transition: all 1.5s;
-        &:hover
-        {
-            @include m.transform;
-        }
-}
-
-.input-field
-{
-    
-    width: 50%;
-    margin: .5rem;
-    height: 60px;
+  }
+  .location {
     @include m.flex-center;
-    flex-direction: column;
-    .label 
-    {
-        align-self: flex-start;
-        font-weight:bold;
-        margin-bottom: 8px;
-        color: $contrast-color;
-    }
-    input
-    {
-        border: 2px solid gray;
-        box-shadow: 0px 0px 2px 1px rgb(210, 210, 210);
-        border-radius: 5px;
-        width: 100%;
-        height: 50%;
-        overflow: hidden;
-        font-size: 1rem;
-        font-weight: 600;
-        text-align: center;
-        &:focus
-        {
-            border: 2px solid $primary-color;
-            background-color: #000000;
-            color: white;
-        }
-    }
+  }
+  .location,
+  .date-range {
+    width: 50%;
+    height: 20%;
+  }
+  .date-range {
+    display: flex;
+  }
 }
 
-
-.form-container
-{
+.city-list {
+  width: 100%;
+  height: 100%;
+  @include m.flex-center;
+  .card {
+    width: 70%;
+    height: 90%;
+    border-radius: 25px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    form {
-        width: 100%;
+    overflow-x: hidden;
+
+    .header {
+      background-color: black;
+      height: 10%;
+      width: 100%;
+      @include m.flex-center;
+      color: white;
+      font-weight: bold;
+      font-size: larger;
+    }
+    .table-header {
+      color: $primary-color;
+      font-weight: bold;
+      font-size: large;
+    }
+    .list {
+      width: 100%;
+      height: 80%;
+      overflow-y: scroll;
+      .city {
+        &:hover {
+          background-color: #c0c0c0;
+        }
+      }
+    }
+    .city {
+      height: 10%;
+
+      background-color: rgb(234, 234, 234);
+      border-bottom: 0.5px solid rgb(198, 198, 198);
+      @include m.flex-center;
+      div {
         @include m.flex-center;
+      }
+      .name {
+        width: 40%;
+      }
+      .stock {
+        width: 30%;
+      }
+      .count {
+        width: 30%;
+      }
     }
-    .select-field
-    {
-        display: flex;
-        flex-direction: column;
-        width: 70%;
-        height: 20%;
-        align-items: center;
-        justify-content: center;
-        padding: 15px;
-        border-radius: 15px;
-        .name
-        {
-            @include m.flex-center;
-            width: 50%;
-            margin: 15px;
-        }
-        select 
-        {
-            height: 80%;
-            width: 50%;
-            border-radius: 15px;
-            background: linear-gradient(to bottom ,$primary-color,rgb(121, 181, 255));
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: bold;
-            color: white;
-            @include m.flex-center;
-        }
-        option 
-        {
-            color: black;
-            background-color: #ffd9d9;
-            border-radius: 15px;
-        }
+    .link {
+      color: black;
     }
-    .brand__header
-    {
-        font-family: 'Secular One', sans-serif;
-        width: 100%;
-        @include m.flex-center;
+  }
+}
+
+.city__container {
+  width: 95%;
+  height: 95%;
+  font-weight: bolder;
+  overflow: hidden;
+  border-radius: 25px;
+  background-color: white;
+  .city-data {
+    height: 20%;
+    display: grid;
+
+    font-size: 2rem;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 30% 70%;
+    background: $silver-gradient;
+    border-bottom: 2px solid $primary-color;
+    box-shadow: 0px 0px 2px 2px solid gainsboro;
+
+    .city__name {
+      grid-column: 1/3;
+      @include m.flex-center;
+      border-bottom: 2px solid rgb(255, 173, 173);
+      background: linear-gradient(to right, #000000, rgb(51, 49, 49));
+      color: white;
     }
-    .header__title
-    {
-        font-family: 'Inter',sans-serif;
+    .stock,
+    .count {
+      font-size: 3rem;
+      p {
         font-size: 1.2rem;
+        margin: 10px;
+        color: black;
+      }
+      @include m.flex-center;
+      flex-direction: column;
+      background-color: white;
+      color: rgb(255, 108, 108);
     }
-    .form__input
-    {
-        margin: 3em;
-        @include m.flex-center;
-        flex-direction: column;
-        width: 100%;
-        height: 80%;
-        
+    .stock {
+      border-right: 1px solid rgb(154, 154, 154);
     }
-    
+    .count {
+      border-left: 1px solid gainsboro;
+    }
+  }
+  .content {
+    height: 80%;
+    background: $silver-gradient;
+    .button {
+      width: 20%;
+    }
+  }
 }
-.link
-{
-    text-decoration: none;
-    font-weight: 600;
-    color: $contrast-color;
+.container__center {
+  height: 100%;
+  @include m.flex-center;
 }
-.button
-{
-    cursor: pointer;
-    width: 80px;
-    height: 35px;
-    border-radius: 8px;
-    transition: all .5s ease-out;
-    font-weight: bold;
-}
-
-.button--primary
-{
-    background-color: $secondary-color;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    @include m.flex-center;
-    margin: 15px;
-    box-shadow: 0px 0px 1px 1px rgb(168, 168, 168);
-    &:hover
-    {
-        transform: scale(1.1,1.1);     
-    }
-}
-
-input
-{
-    border: none;
-}
-.error
-{
-    color: rgb(220, 53, 53);
-    margin: 10px;
-    font-family:'Inter',sans-serif;
-    font-weight: 100;
-}
-.visible
-{
-    display: block;
-}
-.hidden
-{
-    visibility: hidden;
-}
-
-.blur
-{
-    filter: blur(10px);
-}
-
-.modal__container
-{
-    
-    position:fixed;
-    width: 30vw;
-    height: 10vh;
-    background-color: #ffffff;
-    top:10px;
-    box-shadow: 0px 0px 5px 2px rgb(255, 175, 175);
-    @include m.flex-center;
-    display: none;
-    transition: all 1s ease-out;
-}
-#registration-modal-container
-{
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top:0;
-    left: 0;
-    align-items: center;
-    justify-content: center;
-    z-index: 5;
-    backdrop-filter: blur(15px);
-    .modal
-    {
-        background-color: white;
-        width: 50%;
-        height: 80%;
-        border-radius: 8px;
-        backdrop-filter: blur(5px);
-        @include m.flex-center;
-        flex-direction: column;
-        padding: 1%;
-        .success__image
-        {
-            width: 80%;
-            height: 70%;
-            background-image: url('/assets/images/success.jpg');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        h1,h3,h5
-        {
-            margin: 5px;
-        }
-    }
-    
-}
-
-.text--contrast
-{
-    color: $contrast-color;
-    display: inline-block;
-    text-align: center;
-}
-
-.sidebar
-{
-    height: 100vh;
-    width: 100%;
-    background: linear-gradient(to right,$contrast-color,rgb(121, 164, 250));
-    color: white;
-
-    a {
-        text-decoration: none;
-        color: white;
-        &:active
-        {
-            color: black;
-        }
-        .active 
-        {
-            color: black;
-        }
-    }
-    .active
-    {
-        color: #000000;
-    }
-    
-    .nav-content
-    {
-        @include m.flex-center;
-        flex-direction: column;
-        text-align: center;
-        font-size: .8rem;
-        height: 10%;
-        margin: 15px 0px 15px 0px;
-        width: 100%;
-        transition: all 0.5s ease-out;
-        &:hover
-        {
-            color: $secondary-color;
-        }
-        
-         
-    }
-    @include m.flex-center;
-    flex-direction: column;
-}
-
-.home__container
-{
-    display: grid;
-    grid-template-columns: 6% 94%;
-}
-
-.profile__container
-{
-    margin-left: 20px;
-    display: grid;
-    height: 100%;
-    grid-template-columns:30% 70%;
-    grid-template-rows: 50% 50%;
-    
-    .card
-    {
-        width: 95%;
-        height: 90%;
-        background-color: rgb(255, 255, 255);
-        border-radius: 25px;
-        box-shadow: 0px 0px 15px 2px rgb(218, 216, 216);
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-    .section__header
-    {
-        background: linear-gradient(to right,rgb(37, 37, 37),rgb(70, 70, 70));
-        @include m.flex-center;
-        height: 5vh;
-        font-size: 1rem;
-        color: white;
-        .icon
-        {
-            padding: 0px 10px 0px 10px;
-        }
-
-    }
-    .section__content
-    {
-        @include m.flex-center;
-        flex-direction: column;
-        height: 90%;
-        .icon 
-            {
-                color:$primary-color;
-            }
-    }
-    .profile 
-    {
-        grid-row: 1/3;
-        @include m.flex-center;
-        .picture
-            {
-                .material-symbols-rounded
-                {
-                    font-size: 170px;
-                    color: rgb(255, 122, 122);
-                }
-            }
-        .profile-data
-        {
-            @include m.flex-center;
-            flex-direction: row;
-            justify-content: flex-start;
-            width: 100%;
-            div {
-                margin: 0px 5px 0px 5px;
-            }
-            .icon
-            {
-                color: rgb(255, 122, 122);
-                width: 20%;
-            }
-            .name 
-            {
-                color: $primary-color;
-                width: 30%;
-            }
-            
-        }
-        .button
-        {
-            width: 50%;
-        }
-    }
-    .history
-    {
-        @include m.flex-center;
-        .card
-        {
-            height: 80%;
-        }
-    }
-    .upcoming
-    {
-        @include m.flex-center;
-        .card
-        {
-            height: 80%;
-        }
-    }
-
-    .booking-details__container
-    {
-        display: flex;
-        width: 100%;
-        height: 80%;
-        flex-direction: column;
-        .center 
-        {
-            align-items: center;
-            justify-content: center;
-        }
-        .icon 
-            {
-                color:$primary-color;
-            }
-        .header 
-            {
-                height: 15%;
-                font-weight: bold;
-                display: flex;
-                background-color: rgb(234, 234, 234);
-                color:$primary-color;
-                border-bottom: 0.5px solid rgb(198, 198, 198);
-
-                div 
-                {
-                    @include m.flex-center;
-                }   
-            }
-        .booking-details
-        {
-            display: flex;
-            background-color: rgb(234, 234, 234);
-            height: 25%;
-            color:rgb(0, 0, 0);
-            border-bottom: 0.5px solid rgb(198, 198, 198);
-
-            div 
-            {
-                @include m.flex-center;
-            }
-        }
-        .id 
-        {
-            width: 10%;
-        }
-        .date,.city 
-        {
-            width: 15%;
-        }
-        .address,.session
-        {
-            width: 30%;
-        }
-        .no-record__message
-        {
-            height: 100%;
-            width: 100%;
-            @include m.flex-center;
-            flex-direction: column;
-            .button
-            {
-                width: 20%;
-                
-            }
-            
-        }
-
-    }
-}
-
-.icon 
-{
-    padding: 5px;
-}
-
-
-.registration__container
-{
-    width: 100%;
-    height: 100%;
-    @include m.flex-center;
-    .card
-    {
-        width: 50%;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background:linear-gradient(to right,white,rgb(203, 203, 203));
-        position: relative;
-        overflow: hidden;
-        .image 
-        {
-            position: absolute;
-            left: 10px;
-            bottom: 20px;
-            background:url("/assets/images/vaccine.png");
-            width: 200px;
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            border-radius: 5px;
-        }
-    }
-    .form__input
-    {
-       
-        margin: 0px;
-    }
-    form 
-    {
-        height: 90%;
-    }
-
-}
-.container 
-{
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-.camp-container
-{
-    .card
-    {
-        width: 50%;
-        background: $silver-gradient;
-    }
-    .select-field
-    {
-        height: 60%;
-    }
-    .input-field
-    {
-        height: 100%;
-    }
-    .form__input
-    {
-        height: 90%;
-    }
-    .button 
-    {
-        margin: 30px;
-        height: 20%;
-    }
-    form 
-    {
-        height: 80%;
-    }
-    .date-range
-    {
-        display: flex;
-
-    }
-}
-

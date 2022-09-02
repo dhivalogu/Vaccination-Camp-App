@@ -1,0 +1,33 @@
+<div class="container__center">
+
+  <div class="city__container">
+    <div class="city-data">
+      <div class="city__name">
+        {{model.name}}
+      </div>
+      <div class="stock">
+        <p>Current Stock</p>
+        {{model.stock}}
+      </div>
+      <div class="count">
+        <p>Total People Vaccinated</p>
+        {{model.vaccinatedCount}}
+      </div>
+    </div>
+    <div class="content">
+      {{model.camp}}
+      {{#if campAvailable}}
+        View Camp
+      {{else}}
+
+        {{add-camp
+          class="container__center"
+          cityID=model.cityID
+          campAdded="campAdded"
+        }}
+
+      {{/if}}
+    </div>
+
+  </div>
+</div>

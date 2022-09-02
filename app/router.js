@@ -18,6 +18,7 @@ Router.map(function() {
   this.route('admin', function() {
     this.route('city', function() {
       this.route('camp');
+      this.route('edit',{path: '/:cityID'});
     });
     this.route('manage');
   });

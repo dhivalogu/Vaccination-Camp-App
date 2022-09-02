@@ -1,0 +1,34 @@
+<div class="city-list">
+  <div class="card">
+    <div class="header">Manage Cities</div>
+    <div class="city table-header">
+      <div class="name">
+        City
+      </div>
+      <div class="stock">
+        Dose Availability
+      </div>
+      <div class="count">
+        Total People Vaccinated
+      </div>
+    </div>
+    <div class="list">
+      {{#each cityData as |city|}}
+
+        {{#link-to "admin.city.edit" city.cityID class="link"}}
+          <div class="city">
+            <div class="name">
+              {{city.name}}
+            </div>
+            <div class="stock">
+              {{city.stock}}
+            </div>
+            <div class="count">
+              {{city.vaccinatedCount}}
+            </div>
+          </div>
+        {{/link-to}}
+      {{/each}}
+    </div>
+  </div>
+</div>
