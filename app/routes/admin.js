@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+    service:Ember.inject.service('common-service'),
     beforeModel()
     {
       if (!localStorage.getItem('user_id'))
@@ -8,5 +9,16 @@ export default Ember.Route.extend({
         this.transitionTo('accounts');
       }
       
+    },
+    model()
+    {
+      return $.get(
+        this.get('service').getRequestURL()+"/cities"
+      );
+    },
+    setupController(controller,model)
+    {
+      console.log(model);
+      controller.set('model',JSON.parse(model));
     }
 });

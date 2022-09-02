@@ -15,7 +15,11 @@ Router.map(function() {
     this.route('profile');
     this.route('registration');
   });
-  this.route('admin');
+  this.route('admin', function() {
+    this.route('city', function() {
+      this.route('camp');
+    });
+  });
 });
 
 export default Router;

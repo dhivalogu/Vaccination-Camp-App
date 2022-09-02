@@ -1,0 +1,38 @@
+<div class="container camp-container">
+  <div class="card">
+    <div class="form-container">
+      <div class="title header__title">
+        Setup a new Camp
+      </div>
+      <form>
+        <div class="form__input">
+          <div class="select-field">
+            <div class="name">City</div>
+            <select>
+              <option value="none" selected disabled hidden>Select a City</option>
+
+            </select>
+          </div>
+
+          <div class="input-field">
+            <span class="label">Camp Location</span>
+            {{input}}
+          </div>
+          <div class="date-range">
+            <div class="input-field">
+              <span class="label">From</span>
+              {{input type="date" required=true}}
+            </div>
+            <div class="input-field">
+              <span class="label">To</span>
+              {{input type="date" value=toDate required=true}}
+            </div>
+
+          </div>
+          <button class="button button--primary">Create</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
         {
             text:"Add Camp",
             icon:"add_circle",
-            link:"admin"
+            link:"admin.city.camp"
         },
         {
             text:"Manage",

@@ -590,3 +590,45 @@ input
     }
 
 }
+.container 
+{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.camp-container
+{
+    .card
+    {
+        width: 50%;
+    }
+    .select-field
+    {
+        height: 60%;
+    }
+    .input-field
+    {
+        height: 100%;
+    }
+    .form__input
+    {
+        height: 90%;
+    }
+    .button 
+    {
+        margin: 30px;
+        height: 20%;
+    }
+    form 
+    {
+        height: 80%;
+    }
+    .date-range
+    {
+        display: flex;
+
+    }
+}
