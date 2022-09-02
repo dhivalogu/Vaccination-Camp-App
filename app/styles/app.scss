@@ -2,6 +2,7 @@
 $primary-color:rgb(76, 127, 222);
 $secondary-color:black;
 $contrast-color:rgb(76, 127, 222);
+$silver-gradient:linear-gradient(to right,white,rgb(203, 203, 203));
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Rubik+Maze&family=Secular+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,700,1,200');
 *{
@@ -346,16 +347,24 @@ input
 
     a {
         text-decoration: none;
-        .active
-    {
-        color: $secondary-color;
+        color: white;
+        &:active
+        {
+            color: black;
+        }
+        .active 
+        {
+            color: black;
+        }
     }
+    .active
+    {
+        color: #000000;
     }
     
     .nav-content
     {
         @include m.flex-center;
-        color: white;
         flex-direction: column;
         text-align: center;
         font-size: .8rem;
@@ -367,6 +376,8 @@ input
         {
             color: $secondary-color;
         }
+        
+         
     }
     @include m.flex-center;
     flex-direction: column;
@@ -604,6 +615,7 @@ input
     .card
     {
         width: 50%;
+        background: $silver-gradient;
     }
     .select-field
     {
@@ -632,3 +644,4 @@ input
 
     }
 }
+

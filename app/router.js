@@ -19,6 +19,7 @@ Router.map(function() {
     this.route('city', function() {
       this.route('camp');
     });
+    this.route('manage');
   });
 });
 

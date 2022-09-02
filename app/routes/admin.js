@@ -18,7 +18,6 @@ export default Ember.Route.extend({
     },
     setupController(controller,model)
     {
-      console.log(model);
       controller.set('model',JSON.parse(model));
     }
 });
