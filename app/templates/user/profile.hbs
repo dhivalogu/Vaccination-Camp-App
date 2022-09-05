@@ -98,16 +98,24 @@
           {{/each}}
 
         {{else}}
-          <div class="no-record__message">
+          {{#if eligibleForBooking}}
+            <div class="no-record__message">
 
-            There are no upcoming bookings.
-            {{#link-to
-              "user.registration"
-              class="button button--primary"
-            }}{{material-icon icon="how_to_reg"}}
-              Book Now
-            {{/link-to}}
-          </div>
+              There are no upcoming bookings.
+              {{#link-to
+                "user.registration"
+                class="button button--primary"
+              }}{{material-icon icon="how_to_reg"}}
+                Book Now
+              {{/link-to}}
+            </div>
+          {{else}}
+            <div class="container__center error">
+
+              {{ineligibiltyReason}}
+            </div>
+          {{/if}}
+
         {{/if}}
       </div>
     </div>

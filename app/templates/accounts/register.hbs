@@ -33,7 +33,7 @@
       </div>
       <div class="input-field">
         <span class="label">Date Of Birth</span>
-        {{input value=dob}}
+        {{input type="date" value=dob max=maxDate}}
       </div>
       <div class="input-field">
         <span class="label">Mobile</span>
@@ -64,3 +64,9 @@
 
   </div>
 </div>
+
+{{error-modal
+  id="errorIdentifier"
+  class="error-modal-container"
+  error=errorMessage
+}}

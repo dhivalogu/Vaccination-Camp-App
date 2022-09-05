@@ -1,52 +1,63 @@
-<div class="registration__container">
-  <div class="card">
-    <div id="section-to-print" class="form-container">
-      <div class="title header__title">
-        Book Your Slot & Get Vaccinated
-      </div>
-      <form>
-        <div class="form__input">
-          <div class="select-field">
-            <div class="name">City</div>
-            <select onchange={{action "selectCity" value="target.value"}}>
-              <option value="none" selected disabled hidden>Select a City</option>
-              {{#each cityData as |city|}}
-                <option value={{city.cityID}}>{{city.name}}</option>
-              {{/each}}
-            </select>
-          </div>
-
-          <div id="regDate" class="select-field hidden">
-            <div class="name">Date</div>
-
-            <select onchange={{action "selectDate" value="target.value"}}>
-              {{#each availDates as |date|}}
-                <option value={{date}}>{{date}}</option>
-              {{/each}}
-            </select>
-          </div>
-          <div id="regSession" class="select-field hidden">
-            <div class="name">Session</div>
-            <select onchange={{action "selectSession" value="target.value"}}>
-              {{#each sessionData as |session|}}
-                <option value={{session}}>{{session}}</option>
-              {{/each}}
-            </select>
-          </div>
-          <button
-            id="regButton"
-            class="button button--primary hidden"
-            {{action "book"}}
-          >Book</button>
-          <button {{action "triggerError"}}>Error!</button>
+{{#if eligibleForBooking}}
+  <div class="registration__container">
+    <div class="card">
+      <div id="section-to-print" class="form-container">
+        <div class="title header__title">
+          Book Your Slot & Get Vaccinated
         </div>
-      </form>
+        <form>
+          <div class="form__input">
+            <div class="select-field">
+              <div class="name">City</div>
+              <select onchange={{action "selectCity" value="target.value"}}>
+                <option value="none" selected disabled hidden>Select a City</option>
+                {{#each cityData as |city|}}
+                  <option value={{city.cityID}}>{{city.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+
+            <div id="regDate" class="select-field hidden">
+              <div class="name">Date</div>
+
+              <select onchange={{action "selectDate" value="target.value"}}>
+                {{#each availDates as |date|}}
+                  <option value={{date}}>{{date}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div id="regSession" class="select-field hidden">
+              <div class="name">Session</div>
+              <select
+                onchange={{action "selectSession" value="target.value"}}
+                required
+              >
+                {{#each sessionData as |session|}}
+                  <option value={{session}}>{{session}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <button
+              id="regButton"
+              class="button button--primary hidden"
+              {{action "book"}}
+            >Book</button>
+            {{!-- <button {{action "triggerError"}}>Error!</button> --}}
+          </div>
+        </form>
+      </div>
+      <div class="image"></div>
     </div>
-    <div class="image"></div>
+
   </div>
-  {{error-modal
-    id="registrationError"
-    class="modal__container"
-    error=errorMessage
-  }}
-</div>
+{{else}}
+  <div class="container__center error">
+    {{material-icon icon="error"}}
+    {{ineligibiltyReason}}
+  </div>
+{{/if}}
+{{error-modal
+  id="errorIdentifier"
+  class="error-modal-container"
+  error=errorMessage
+}}

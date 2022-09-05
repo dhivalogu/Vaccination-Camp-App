@@ -617,12 +617,12 @@ input {
   border-radius: 25px;
   background-color: white;
   .city-data {
-    height: 20%;
+    height: 30%;
     display: grid;
 
     font-size: 2rem;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 30% 70%;
+    grid-template-rows: 40% 60%;
     background: $silver-gradient;
     border-bottom: 2px solid $primary-color;
     box-shadow: 0px 0px 2px 2px solid gainsboro;
@@ -655,7 +655,7 @@ input {
     }
   }
   .content {
-    height: 80%;
+    height: 70%;
     background: $silver-gradient;
     .button {
       width: 20%;
@@ -764,5 +764,33 @@ input {
     position: absolute;
     left: 0;
     top: 0;
+  }
+}
+
+.error-modal-container {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vw;
+  position: fixed;
+  @include m.flex-center;
+  flex-direction: column;
+  justify-content: flex-start;
+  display: none;
+  .error-modal {
+    margin-top: 2%;
+    width: auto;
+    padding: 0px 15px 0px 15px;
+    min-width: 30%;
+    height: 5%;
+    font-weight: 100;
+    border-radius: 2px;
+    @include m.flex-center;
+    background-color: rgb(232, 79, 79);
+    color: white;
+    .icon {
+      color: rgb(255, 255, 255);
+    }
+    box-shadow: 0px 0px 5px 1px rgb(157, 157, 157);
   }
 }
