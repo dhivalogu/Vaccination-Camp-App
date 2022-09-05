@@ -21,7 +21,7 @@ export default Ember.Component.extend({
         console.log(data);
         let response = JSON.parse(data);
         console.log(response["status-code"]);
-        this.sendAction("campAdded");
+        this.sendAction("refresh");
       });
     },
     setCity(cityID) {

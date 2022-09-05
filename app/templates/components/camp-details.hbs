@@ -1,0 +1,112 @@
+<div class="camp-details-container">
+  <div class="camp">
+    <div class="content-title">Camp Details</div>
+    <div class="field-title">
+      Camp ID
+    </div>
+    <div class="field-value">
+      {{camp.campID}}
+    </div>
+    <div class="field-title">
+      Address
+    </div>
+    <div class="field-value">
+      {{camp.address}}
+    </div>
+    <div class="field-title">
+      Begin Date
+    </div>
+    <div class="field-value">
+      {{camp.beginDate}}
+    </div>
+    <div class="field-title">
+      End Date
+    </div>
+    <div class="field-value">
+      {{camp.endDate}}
+    </div>
+  </div>
+  <div class="camp">
+    <div class="content-title">Slot Details</div>
+    <select
+      value="choosenSlot"
+      onchange={{action "chooseSlot" value="target.value"}}
+    >
+      {{#each camp.slotList as |slot|}}
+        <option value={{slot.slotID}}>{{slot.date}} {{slot.session}} </option>
+      {{/each}}
+    </select>
+    <div class="field-title">
+      Slot ID
+    </div>
+    <div class="field-value">
+      {{choosenSlot.slotID}}
+    </div>
+    <div class="field-title">
+      Date
+    </div>
+    <div class="field-value">
+      {{choosenSlot.date}}
+    </div>
+    <div class="field-title">
+      Session
+    </div>
+    <div class="field-value">
+      {{choosenSlot.session}}
+    </div>
+    <div class="field-title">
+      Capacity
+    </div>
+    <div class="field-value">
+      {{choosenSlot.capacity}}
+    </div>
+    <div class="field-title">
+      No of Bookings
+    </div>
+    <div class="field-value">
+      {{choosenSlot.bookings}}
+    </div>
+
+  </div>
+  <div class="booking-details__container">
+    {{#if choosenSlot.bookings}}
+      <div class="header">
+        <div class="id">
+          Booking ID
+        </div>
+        <div class="aadhar">
+          Aadhar ID
+        </div>
+        <div class="status">
+          Status
+        </div>
+        <div class="actions">
+          Actions
+        </div>
+      </div>
+      {{#each choosenSlot.bookingList as |booking|}}
+        <div class="booking-details">
+          <div class="id">
+            {{booking.bookingID}}
+          </div>
+          <div class="aadhar">
+            {{booking.AADHAR}}
+          </div>
+          <div class="status">
+            {{booking.status}}
+          </div>
+          <div class="actions">
+            <div
+              class="success"
+              {{action "approveVaccination" booking.bookingID}}
+            >{{material-icon icon="done_all"}}</div>
+
+          </div>
+        </div>
+      {{/each}}
+
+    {{else}}
+      <div class="container__center">No bookings yet</div>
+    {{/if}}
+  </div>
+</div>

@@ -10,6 +10,7 @@ $silver-gradient: linear-gradient(to right, white, rgb(203, 203, 203));
   padding: 0px;
   border: 0px;
   font-family: "Inter", sans-serif;
+  box-sizing: border-box;
 }
 body {
   height: 100vh;
@@ -409,65 +410,64 @@ input {
       height: 80%;
     }
   }
+}
 
-  .booking-details__container {
+.booking-details__container {
+  display: flex;
+  width: 100%;
+  height: 80%;
+  flex-direction: column;
+  .center {
+    align-items: center;
+    justify-content: center;
+  }
+  .icon {
+    color: $primary-color;
+  }
+  .header {
+    height: 15%;
+    font-weight: bold;
     display: flex;
-    width: 100%;
-    height: 80%;
-    flex-direction: column;
-    .center {
-      align-items: center;
-      justify-content: center;
-    }
-    .icon {
-      color: $primary-color;
-    }
-    .header {
-      height: 15%;
-      font-weight: bold;
-      display: flex;
-      background-color: rgb(234, 234, 234);
-      color: $primary-color;
-      border-bottom: 0.5px solid rgb(198, 198, 198);
+    background-color: rgb(234, 234, 234);
+    color: $primary-color;
+    border-bottom: 0.5px solid rgb(198, 198, 198);
 
-      div {
-        @include m.flex-center;
-      }
-    }
-    .booking-details {
-      display: flex;
-      background-color: rgb(234, 234, 234);
-      height: 25%;
-      color: rgb(0, 0, 0);
-      border-bottom: 0.5px solid rgb(198, 198, 198);
-
-      div {
-        @include m.flex-center;
-      }
-    }
-    .id {
-      width: 10%;
-    }
-    .date,
-    .city {
-      width: 15%;
-    }
-    .address,
-    .session {
-      width: 30%;
-    }
-    .no-record__message {
-      height: 100%;
-      width: 100%;
+    div {
       @include m.flex-center;
-      flex-direction: column;
-      .button {
-        width: 20%;
-      }
+    }
+  }
+  .booking-details {
+    display: flex;
+    background-color: rgb(234, 234, 234);
+    height: 25%;
+    color: rgb(0, 0, 0);
+    border-bottom: 0.5px solid rgb(198, 198, 198);
+
+    div {
+      @include m.flex-center;
+    }
+  }
+  .id {
+    width: 10%;
+  }
+  .date,
+  .city {
+    width: 15%;
+  }
+  .address,
+  .session {
+    width: 30%;
+  }
+  .no-record__message {
+    height: 100%;
+    width: 100%;
+    @include m.flex-center;
+    flex-direction: column;
+    .button {
+      width: 20%;
     }
   }
 }
-
 .icon {
   padding: 5px;
 }
@@ -665,4 +665,89 @@ input {
 .container__center {
   height: 100%;
   @include m.flex-center;
+}
+
+.camp-details-container {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 25% 25% 50%;
+  .content-title {
+    height: 10%;
+    @include m.flex-center;
+    color: $primary-color;
+    border-radius: 30px;
+    width: 100%;
+  }
+  .field-title {
+    height: 10%;
+    color: rgb(255, 121, 121);
+  }
+  .field-value {
+    font-size: large;
+    height: 10%;
+  }
+  .camp {
+    width: 100%;
+    @include m.flex-center;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: 1px solid $primary-color;
+    select {
+      height: 5%;
+      background-color: $primary-color;
+      color: white;
+      border-radius: 15px;
+      margin: 5px;
+    }
+  }
+  .booking-details__container {
+    width: 100%;
+    height: 100%;
+    .header {
+      @include m.flex-center;
+      background: linear-gradient(to right, $primary-color, rgb(109, 135, 205));
+      color: white;
+      height: 10%;
+    }
+    .id {
+      width: 15%;
+    }
+    .aadhar {
+      width: 30%;
+    }
+    .status {
+      width: 35%;
+    }
+    .actions {
+      width: 20%;
+      div {
+        cursor: pointer;
+      }
+      .success {
+        .icon {
+          color: green;
+        }
+      }
+      .cancel {
+        .icon {
+          color: red;
+        }
+      }
+      .success,
+      .cancel {
+        &:hover {
+          transform: scale(1.3, 1.3);
+        }
+      }
+    }
+    .booking-details {
+      @include m.flex-center;
+      width: 100%;
+      height: 5%;
+    }
+  }
+
+  .booking-list {
+  }
 }

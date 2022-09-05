@@ -15,15 +15,19 @@
       </div>
     </div>
     <div class="content">
-      {{model.camp}}
+
       {{#if campAvailable}}
-        View Camp
+        {{camp-details
+          class="container"
+          camp=model.camp
+          addVaccinatedCount="addVaccinatedCount"
+        }}
       {{else}}
 
         {{add-camp
           class="container__center"
           cityID=model.cityID
-          campAdded="campAdded"
+          refresh="refresh"
         }}
 
       {{/if}}

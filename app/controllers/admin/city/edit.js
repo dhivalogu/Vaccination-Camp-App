@@ -8,8 +8,19 @@ export default Ember.Controller.extend({
       console.log(this.get("model"));
       console.log();
     },
-    campAdded() {
+    refresh() {
       this.get("adminController").send("refreshModel");
+    },
+    addVaccinatedCount(cityID) {
+      let prevCount = this.get("adminController")
+        .get("model")
+        .findBy("cityID", cityID)["vaccinatedCount"];
+
+      Ember.set(
+        this.get("adminController").get("model").findBy("cityID", cityID),
+        "vaccinatedCount",
+        Number(prevCount) + 1
+      );
     },
   },
 });
