@@ -680,12 +680,12 @@ input {
     width: 100%;
   }
   .field-title {
-    height: 10%;
-    color: rgb(255, 121, 121);
+    height: 5%;
   }
   .field-value {
     font-size: large;
-    height: 10%;
+    height: 15%;
+    color: rgb(255, 121, 121);
   }
   .camp {
     width: 100%;
@@ -698,7 +698,7 @@ input {
       background-color: $primary-color;
       color: white;
       border-radius: 15px;
-      margin: 5px;
+      margin: 5px 0px 15px 0px;
     }
   }
   .booking-details__container {
@@ -706,7 +706,7 @@ input {
     height: 100%;
     .header {
       @include m.flex-center;
-      background: linear-gradient(to right, $primary-color, rgb(109, 135, 205));
+      background: linear-gradient(to right, $primary-color, rgb(110, 149, 255));
       color: white;
       height: 10%;
     }
@@ -749,5 +749,20 @@ input {
   }
 
   .booking-list {
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #section-to-print,
+  #section-to-print * {
+    visibility: visible;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }
