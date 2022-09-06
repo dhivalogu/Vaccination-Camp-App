@@ -10,6 +10,7 @@ export default Ember.Controller.extend({
     },
     refresh() {
       this.get("adminController").send("refreshModel");
+      window.history.back();
     },
     addVaccinatedCount(cityID) {
       let prevCount = this.get("adminController")

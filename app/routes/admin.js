@@ -2,7 +2,7 @@ import Ember from "ember";
 
 export default Ember.Route.extend({
   service: Ember.inject.service("common-service"),
-  beforeModel() {
+  afterModel() {
     if (!localStorage.getItem("user_id")) {
       this.transitionTo("accounts");
     }
@@ -14,6 +14,7 @@ export default Ember.Route.extend({
     refreshModel() {
       console.log("You Rock x3");
       this.refresh();
+      window.history.back();
     },
   },
 });

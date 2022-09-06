@@ -29,11 +29,12 @@ export default Ember.Controller.extend({
           this.get("service").getRequestURL() + "/accounts/authentication",
           requestJSON,
           (data) => {
+            console.log(data);
             let response = JSON.parse(data);
             console.log(response);
             localStorage.setItem("user_id", response.username);
             if (response.accessLevel == "2") {
-              this.transitionToRoute("admin");
+              this.transitionToRoute("admin.manage");
             } else if (response.accessLevel == "1") {
               this.transitionToRoute("user");
             } else {

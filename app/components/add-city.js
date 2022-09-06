@@ -1,6 +1,7 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
+  service: Ember.inject.service("common-service"),
   didReceiveAttrs() {
     $.getJSON("/assets/json/cities.json", (data) => {
       this.set("city", data);
@@ -33,15 +34,20 @@ export default Ember.Component.extend({
         cityName: this.get("cityName"),
         stock: this.get("stock"),
       });
-      let responseJSON = {
-        cityID: 1,
-        name: this.get("cityName"),
-        stock: this.get("stock"),
-        vaccinatedCount: 0,
-      };
-      this.sendAction("insertCity", responseJSON);
-      this.filterExistingCity();
-      this.actions.closeModal();
+      $.post(
+        this.get("service").getRequestURL() + "/cities",
+        requestJSON,
+        (data, status) => {
+          console.log(data);
+          console.log(status);
+          if (status == "success") {
+            let responseJSON = JSON.parse(data);
+            this.sendAction("insertCity", responseJSON);
+            this.filterExistingCity();
+            this.actions.closeModal();
+          }
+        }
+      );
     },
   },
 });
