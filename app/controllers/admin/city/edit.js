@@ -10,7 +10,6 @@ export default Ember.Controller.extend({
     },
     refresh() {
       this.get("adminController").send("refreshModel");
-      window.history.back();
     },
     addVaccinatedCount(cityID) {
       let prevCount = this.get("adminController")
@@ -21,6 +20,11 @@ export default Ember.Controller.extend({
         this.get("adminController").get("model").findBy("cityID", cityID),
         "vaccinatedCount",
         Number(prevCount) + 1
+      );
+      Ember.set(
+        this.get("adminController").get("model").findBy("cityID", cityID),
+        "stock",
+        Number(prevCount) - 1
       );
     },
   },

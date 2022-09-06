@@ -14,7 +14,6 @@ export default Ember.Route.extend({
     refreshModel() {
       console.log("You Rock x3");
       this.refresh();
-      window.history.back();
     },
   },
 });
