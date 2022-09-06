@@ -6,6 +6,12 @@ export default Ember.Component.extend({
   toDate: "",
   address: "",
   cityID: "",
+  minDate: Ember.computed(() => {
+    let today = new Date();
+    today = today.toISOString().slice(0, 10);
+    console.log(today);
+    return today;
+  }),
   actions: {
     test() {
       let requestJSON = JSON.stringify({

@@ -16,11 +16,17 @@
         <div class="date-range">
           <div class="input-field">
             <span class="label">From</span>
-            {{input type="date" value=fromDate required=true}}
+            {{input type="date" value=fromDate min=minDate required=true}}
           </div>
           <div class="input-field">
             <span class="label">To</span>
-            {{input type="date" value=toDate key-press="test" required=true}}
+            {{input
+              type="date"
+              value=toDate
+              min=fromDate
+              key-press="test"
+              required=true
+            }}
           </div>
         </div>
         <button {{action "test"}} class="button button--primary">Create</button>
