@@ -26,7 +26,12 @@ export default Ember.Route.extend({
     controller.set("hasCompletedVaccination", hasCompletedVaccination);
     controller.set("hasUpcomingBooking", hasUpcomingBooking);
     controller.set("userData", this.controllerFor("user").get("model"));
-    controller.set("cityData", JSON.parse(model));
+    controller.set(
+      "cityData",
+      JSON.parse(model).filter((city) => {
+        return city.camp != null;
+      })
+    );
 
     if (!hasUpcomingBooking) {
       if (hasBookingHistory) {
@@ -36,7 +41,6 @@ export default Ember.Route.extend({
             "ineligibiltyReason",
             "Kudos, You have completed your vaccination"
           );
-          return true;
         }
         const lastVaccinationDate = new Date(
           bookingHistory[bookingHistory.length - 1].date
@@ -48,7 +52,6 @@ export default Ember.Route.extend({
         );
         if (diffDays > 45) {
           controller.set("eligibleForBooking", true);
-          return true;
         } else {
           controller.set("eligibleForBooking", false);
           controller.set(
@@ -56,7 +59,9 @@ export default Ember.Route.extend({
             "You are eligibile to book only after 45 days of previous booking"
           );
         }
-      } else return true;
+      } else {
+        controller.set("eligibleForBooking", true);
+      }
     } else {
       controller.set("eligibleForBooking", false);
       controller.set(

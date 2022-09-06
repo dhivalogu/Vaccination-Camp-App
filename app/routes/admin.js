@@ -6,7 +6,6 @@ export default Ember.Route.extend({
     if (!localStorage.getItem("user_id")) {
       this.transitionTo("accounts");
     }
-    this.transitionTo("admin.manage");
   },
   model() {
     return $.getJSON(this.get("service").getRequestURL() + "/cities");

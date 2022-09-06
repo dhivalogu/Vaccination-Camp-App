@@ -568,6 +568,25 @@ input {
       color: white;
       font-weight: bold;
       font-size: larger;
+      position: relative;
+      .action {
+        width: 40px;
+        height: 40px;
+        @include m.flex-center;
+        position: absolute;
+        left: 10px;
+        color: $primary-color;
+        background: linear-gradient(to right, white, gainsboro);
+        border-radius: 50%;
+        transition: all 0.5s;
+        cursor: pointer;
+        &:hover {
+          background: $primary-color;
+          color: white;
+        }
+      }
+      .title {
+      }
     }
     .table-header {
       color: $primary-color;
@@ -793,4 +812,16 @@ input {
     }
     box-shadow: 0px 0px 5px 1px rgb(157, 157, 157);
   }
+}
+
+#add-city__modal {
+  position: fixed;
+  display: flex;
+  height: 50vh;
+  width: 50vw;
+  top: 25vh;
+  left: 25vw;
+  background-color: white;
+  backdrop-filter: blur(5px);
+  z-index: 6;
 }
