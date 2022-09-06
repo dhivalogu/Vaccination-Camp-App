@@ -1,3 +1,7 @@
-{{city-list class="container" cityData=model}}
+{{city-list class="container" cityData=model addCity="addCity"}}
 
-{{add-city id="registration-modal-container" class="hidden"}}
+{{add-city
+  city=citiesJSON
+  id="registration-modal-container"
+  class="hidden add-city"
+}}

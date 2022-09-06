@@ -1,1 +1,18 @@
-Hi
+<div class="add-city__modal">
+  <div class="form-container">
+
+    <select class="select-field">
+      {{#each city as |city|}}
+        <option value={{city.name}}>{{city.name}}</option>
+      {{/each}}
+    </select>
+    <div class="input-field">
+      <div class="label">Stock</div>
+      {{input type="number" min="200"}}
+    </div>
+    <button class="button button--primary">Add City</button>
+    <div class="action" {{action "closeModal"}}>{{material-icon
+        icon="cancel"
+      }}</div>
+  </div>
+</div>
