@@ -20,7 +20,14 @@ export default Ember.Controller.extend({
       this.set("cityID", cityID);
       this.set("camp", selectedCity.camp);
       console.log("Camp", this.get("camp"));
-      this.set("availDates", this.get("camp.availDate"));
+      let slotList = this.get("camp.slotList");
+      let date = slotList
+        .filter((slot) => {
+          return slot.bookings < 10;
+        })
+        .map((slot) => slot.date);
+      this.set("availDates", new Set(date));
+      console.log(date);
       this.set("date", this.get("availDates")[0]);
       this.set("session", this.get("sessionData")[0]);
       document.getElementById("regDate").classList.remove("hidden");

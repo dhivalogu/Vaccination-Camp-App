@@ -26,10 +26,11 @@ export default Ember.Route.extend({
     controller.set("hasCompletedVaccination", hasCompletedVaccination);
     controller.set("hasUpcomingBooking", hasUpcomingBooking);
     controller.set("userData", this.controllerFor("user").get("model"));
+    console.log(JSON.parse(model));
     controller.set(
       "cityData",
       JSON.parse(model).filter((city) => {
-        return city.camp != null;
+        return city.camp != null && city.stock > 200;
       })
     );
 
