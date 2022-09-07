@@ -1,0 +1,16 @@
+<div class="add-city__modal">
+  <form {{action "updateStock" on="submit"}}>
+    <div class="form-input">
+      <div class="input-field">
+        <div class="label">
+          Updated Stock
+        </div>
+        {{input type="number" value=stock required=true}}
+      </div>
+      <button class="button button--primary">Update</button>
+    </div>
+  </form>
+  <div class="action" {{action "closeModal"}}>{{material-icon
+      icon="cancel"
+    }}</div>
+</div>

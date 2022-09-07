@@ -27,5 +27,15 @@ export default Ember.Controller.extend({
         Number(prevCount) - 1
       );
     },
+    editStock() {
+      document
+        .getElementById("registration-modal-container")
+        .classList.remove("hidden");
+      document.getElementById("registration-modal-container").style.display =
+        "flex";
+    },
+    updateStock(stock) {
+      console.log("Stock Updated" + stock);
+    },
   },
 });

@@ -7,7 +7,14 @@
       </div>
       <div class="stock">
         <p>Current Stock</p>
-        {{model.stock}}
+        <div class="value">{{model.stock}}
+          <div class="action" {{action "editStock"}}>{{material-icon
+              icon="edit"
+            }}
+
+          </div>
+        </div>
+
       </div>
       <div class="count">
         <p>Total People Vaccinated</p>
@@ -35,3 +42,9 @@
 
   </div>
 </div>
+{{update-stock
+  stock=model.stock
+  id="registration-modal-container"
+  class="hidden add-city"
+  updateStock="updateStock"
+}}
