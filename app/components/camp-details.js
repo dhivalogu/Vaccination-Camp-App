@@ -12,7 +12,7 @@ export default Ember.Component.extend({
       if (
         this.get("choosenSlot.bookingList").findBy("bookingID", bookingID)[
           "status"
-        ] != "VACCINATED"
+        ] == "VACCINATED"
       ) {
         let requestJSON = JSON.stringify({
           bookingID: bookingID,
@@ -34,7 +34,10 @@ export default Ember.Component.extend({
               "status",
               "VACCINATED"
             );
-            this.sendAction("addVaccinatedCount", this.get("camp.cityID"));
+            this.sendAction(
+              "addVaccinatedCount",
+              this.get("choosenCamp.cityID")
+            );
           },
         });
       }
@@ -53,6 +56,10 @@ export default Ember.Component.extend({
         this.get("choosenCamp.slotList").findBy("slotID", Number(slotID))
       );
       console.log(this.get("choosenSlot"));
+    },
+    addCamp() {
+      console.log("Signal 1");
+      this.sendAction("addCamp");
     },
   },
 });

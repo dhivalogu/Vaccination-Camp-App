@@ -24,9 +24,13 @@
     <div class="content">
 
       {{#if campAvailable}}
+        <div class="action" {{action "addCamp"}}>{{material-icon
+            icon="add"
+          }}</div>
         {{camp-details
           class="container"
           campList=model.campList
+          addNewCamp="addCamp"
           addVaccinatedCount="addVaccinatedCount"
         }}
       {{else}}

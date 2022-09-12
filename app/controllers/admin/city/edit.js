@@ -7,11 +7,19 @@ export default Ember.Controller.extend({
     refresh() {
       this.get("adminController").send("refreshModel");
     },
+    addCamp() {
+      this.set("campAvailable", false);
+    },
     addVaccinatedCount(cityID) {
+      console.log(
+        this.get("adminController").get("model").findBy("cityID", cityID)
+      );
       let prevCount = this.get("adminController")
         .get("model")
         .findBy("cityID", cityID)["vaccinatedCount"];
-
+      let prevStock = this.get("adminController")
+        .get("model")
+        .findBy("cityID", cityID)["stock"];
       Ember.set(
         this.get("adminController").get("model").findBy("cityID", cityID),
         "vaccinatedCount",
@@ -20,7 +28,7 @@ export default Ember.Controller.extend({
       Ember.set(
         this.get("adminController").get("model").findBy("cityID", cityID),
         "stock",
-        Number(prevCount) - 1
+        Number(prevStock) - 1
       );
     },
     editStock() {

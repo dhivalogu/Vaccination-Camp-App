@@ -13,7 +13,7 @@ export default Ember.Component.extend({
     return today;
   }),
   actions: {
-    test() {
+    addCamp() {
       let requestJSON = JSON.stringify({
         cityID: this.get("cityID"),
         address: this.get("address"),

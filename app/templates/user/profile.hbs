@@ -98,7 +98,10 @@
 
           </div>
           {{#each upcomingBooking as |booking|}}
-            {{booking-details class="booking-details" booking=booking}}
+            <div
+              class="booking-data"
+              {{action "viewBooking" booking}}
+            >{{booking-details class="booking-details" booking=booking}}</div>
           {{/each}}
 
         {{else}}

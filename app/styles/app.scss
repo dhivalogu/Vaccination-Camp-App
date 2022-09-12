@@ -703,9 +703,20 @@ input {
   }
   .content {
     height: 70%;
+    position: relative;
     background: $silver-gradient;
     .button {
       width: 20%;
+    }
+    .action {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background-color: black;
+      border-radius: 25px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      z-index: 50;
     }
   }
 }
@@ -740,6 +751,13 @@ input {
     flex-direction: column;
     justify-content: flex-start;
     border-right: 1px solid $primary-color;
+    position: relative;
+    .action {
+      position: absolute;
+      top: 0;
+      right: 0;
+      cursor: pointer;
+    }
     select {
       height: 5%;
       background-color: $primary-color;
