@@ -13,45 +13,67 @@ export default Ember.Controller.extend({
   errorMessage: "No Error",
   actions: {
     selectCity(cityID) {
-      let selectedCity = this.get("cityData").find(
-        (city) => city.cityID == cityID
+      this.set(
+        "selectedCity",
+        this.get("cityData").find((city) => city.cityID == cityID)
       );
-      console.log(selectedCity);
       this.set("cityID", cityID);
-      this.set("camp", selectedCity.camp);
-      console.log("Camp", this.get("camp"));
-      let slotList = this.get("camp.slotList");
-      let date = slotList
-        .filter((slot) => {
-          return slot.bookings < 10;
-        })
-        .map((slot) => slot.date);
-      this.set("availDates", new Set(date));
-      console.log(date);
-      this.set("date", this.get("availDates")[0]);
-      this.set("session", this.get("sessionData")[0]);
+      this.set("campList", this.get("selectedCity.campList"));
+      document.getElementById("regCamp").classList.remove("hidden");
+      /*this.set("choosenCamp", this.get("campList")[0]);
+      
+      
+      
+      this.set("choosenSlot", this.get("slotList")[0]);
+      
+      
+      */
+    },
+    selectCamp(campID) {
+      this.set(
+        "choosenCamp",
+        this.get("campList").findBy("campID", Number(campID))
+      );
+      this.set("campID", this.get("choosenCamp.campID"));
+      console.log(this.get("campID"));
+      this.set(
+        "slotList",
+        this.get("choosenCamp.slotList").filter((slot) => slot.bookings <= 10)
+      );
+      this.set(
+        "availDate",
+        Array.from(new Set(this.get("slotList").map((slot) => slot.date)))
+      );
       document.getElementById("regDate").classList.remove("hidden");
-      document.getElementById("regSession").classList.remove("hidden");
-      document.getElementById("regButton").classList.remove("hidden");
     },
     selectDate(date) {
-      this.set("date", date);
+      this.set("choosenDate", date);
+      this.set(
+        "availSession",
+        this.get("slotList")
+          .filter((slot) => slot.date == this.get("choosenDate"))
+          .map((slot) => slot.session)
+      );
+      document.getElementById("regSession").classList.remove("hidden");
     },
     selectSession(session) {
       this.set("session", session);
+      document.getElementById("regButton").classList.remove("hidden");
     },
     book() {
-      let slotList = this.get("camp.slotList");
+      let slotList = this.get("slotList");
       let slot = slotList.find(
-        (s) => s.date == this.get("date") && s.session == this.get("session")
+        (s) =>
+          s.date == this.get("choosenDate") && s.session == this.get("session")
       );
       this.set("slotID", slot.slotID);
       let bookingRequest = {
         aadharID: this.get("userData.AadharID"),
         slotID: this.get("slotID"),
-        campID: this.get("camp.campID"),
+        campID: this.get("campID"),
         cityID: this.get("cityID"),
       };
+      console.log(bookingRequest);
       $.post(
         this.get("service").getRequestURL() + "/cities/camps/slots/bookings",
         JSON.stringify(bookingRequest),

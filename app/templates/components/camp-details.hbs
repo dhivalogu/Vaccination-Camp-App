@@ -1,29 +1,37 @@
 <div class="camp-details-container">
   <div class="camp">
     <div class="content-title">Camp Details</div>
+    <select
+      value="choosenCamp"
+      onchange={{action "chooseCamp" value="target.value"}}
+    >
+      {{#each campList as |camp|}}
+        <option value={{camp.campID}}>{{camp.address}} </option>
+      {{/each}}
+    </select>
     <div class="field-title">
       Camp ID
     </div>
     <div class="field-value">
-      {{camp.campID}}
+      {{choosenCamp.campID}}
     </div>
     <div class="field-title">
       Address
     </div>
     <div class="field-value">
-      {{camp.address}}
+      {{choosenCamp.address}}
     </div>
     <div class="field-title">
       Begin Date
     </div>
     <div class="field-value">
-      {{camp.beginDate}}
+      {{choosenCamp.beginDate}}
     </div>
     <div class="field-title">
       End Date
     </div>
     <div class="field-value">
-      {{camp.endDate}}
+      {{choosenCamp.endDate}}
     </div>
   </div>
   <div class="camp">
@@ -32,7 +40,7 @@
       value="choosenSlot"
       onchange={{action "chooseSlot" value="target.value"}}
     >
-      {{#each camp.slotList as |slot|}}
+      {{#each choosenCamp.slotList as |slot|}}
         <option value={{slot.slotID}}>{{slot.date}} {{slot.session}} </option>
       {{/each}}
     </select>

@@ -3,8 +3,9 @@ import Ember from "ember";
 export default Ember.Component.extend({
   service: Ember.inject.service("common-service"),
   didReceiveAttrs() {
-    console.log(this.get("camp"));
-    this.set("choosenSlot", this.get("camp.slotList")[0]);
+    console.log(this.get("campList"));
+    this.set("choosenCamp", this.get("campList")[0]);
+    this.set("choosenSlot", this.get("choosenCamp.slotList")[0]);
   },
   actions: {
     approveVaccination(bookingID) {
@@ -38,13 +39,18 @@ export default Ember.Component.extend({
         });
       }
     },
-    test1() {
-      console.log("Sucess1");
+    chooseCamp(campID) {
+      this.set(
+        "choosenCamp",
+        this.get("campList").findBy("campID", Number(campID))
+      );
+      this.set("choosenSlot", this.get("choosenCamp.slotList")[0]);
+      console.log(this.get("choosenCamp"));
     },
     chooseSlot(slotID) {
       this.set(
         "choosenSlot",
-        this.get("camp.slotList").findBy("slotID", Number(slotID))
+        this.get("choosenCamp.slotList").findBy("slotID", Number(slotID))
       );
       console.log(this.get("choosenSlot"));
     },

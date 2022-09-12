@@ -12,6 +12,7 @@ export default Ember.Component.extend({
     print() {
       document.title = "Certificate of Vaccination";
       window.print();
+      document.title = "Vaccination App";
     },
   },
 });
