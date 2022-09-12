@@ -443,10 +443,18 @@ input {
       @include m.flex-center;
     }
   }
+  .booking-data {
+    height: 25%;
+    cursor: pointer;
+    background-color: rgb(234, 234, 234);
+    &:hover {
+      background-color: rgb(168, 168, 168);
+    }
+  }
   .booking-details {
     display: flex;
-    background-color: rgb(234, 234, 234);
-    height: 25%;
+
+    height: 100%;
     color: rgb(0, 0, 0);
     border-bottom: 0.5px solid rgb(198, 198, 198);
 
@@ -859,5 +867,48 @@ form {
   .form-input {
     @include m.flex-center;
     flex-direction: column;
+  }
+}
+.booking-modal {
+  width: 50%;
+  height: 50%;
+  @include m.flex-center;
+  flex-direction: column;
+  position: relative;
+  border-radius: 25px;
+  background: $silver-gradient;
+  .action {
+    right: 10px;
+    top: 0;
+    cursor: pointer;
+    position: absolute;
+  }
+}
+#booking-details {
+  width: 100%;
+  height: 100%;
+  display: grid;
+
+  grid-template-columns: 50% 50%;
+
+  .label {
+    @include m.flex-center;
+  }
+  .value {
+    @include m.flex-center;
+  }
+}
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #booking-details,
+  #booking-details * {
+    visibility: visible;
+  }
+  #booking-details {
+    position: absolute;
+    left: 0;
+    top: 0;
   }
 }

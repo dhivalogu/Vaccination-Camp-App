@@ -62,8 +62,12 @@
             <div class="address">Location</div>
             <div class="session">Session</div>
           </div>
+
           {{#each bookingHistory as |booking|}}
-            {{booking-details class="booking-details" booking=booking}}
+            <div
+              class="booking-data"
+              {{action "viewBooking" booking}}
+            >{{booking-details class="booking-details" booking=booking}}</div>
           {{/each}}
         {{else}}
           <div class="no-record__message">
@@ -121,3 +125,9 @@
     </div>
   </div>
 </div>
+
+{{view-booking
+  id="registration-modal-container"
+  booking=choosenBooking
+  class="hidden add-city"
+}}

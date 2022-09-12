@@ -1,0 +1,40 @@
+<div class="booking-modal">
+
+  <div id="booking-details">
+    <div class="label">
+      Aadhar ID
+    </div>
+    <div class="value">
+      {{booking.AADHAR}}
+    </div>
+    <div class="label">
+      Booking ID
+    </div>
+    <div class="value">
+      {{booking.bookingID}}
+    </div>
+    <div class="label">
+      Vaccinated On
+    </div>
+    <div class="value">
+      {{booking.date}}
+    </div>
+    <div class="label">
+      Vaccinated At
+    </div>
+    <div class="value">
+      {{booking.address}}
+    </div>
+    <div class="label">
+      Session
+    </div>
+    <div class="value">
+      {{booking.session}}
+    </div>
+  </div>
+  <div class="action" {{action "closeModal"}}>{{material-icon icon="cancel"}}
+  </div>
+  <button class="button button--primary" {{action "print"}}>{{material-icon
+      icon="print"
+    }}</button>
+</div>
