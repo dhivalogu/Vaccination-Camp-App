@@ -2,12 +2,8 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
   adminController: Ember.inject.controller("admin"),
+  service: Ember.inject.service("common-service"),
   actions: {
-    test() {
-      console.log(this.get("model"));
-      console.log(this.get("model"));
-      console.log();
-    },
     refresh() {
       this.get("adminController").send("refreshModel");
     },
@@ -34,8 +30,25 @@ export default Ember.Controller.extend({
       document.getElementById("registration-modal-container").style.display =
         "flex";
     },
-    updateStock(stock) {
-      console.log("Stock Updated" + stock);
+    updateStock(stock, cityID) {
+      console.log("Stock Updated" + stock + cityID);
+      let requestJSON = JSON.stringify({
+        stock: stock,
+      });
+
+      $.ajax({
+        url: this.get("service").getRequestURL() + "/cities/" + cityID,
+        type: "put",
+        data: requestJSON,
+        success: (data, status) => {
+          console.log(data, status);
+          Ember.set(
+            this.get("adminController").get("model").findBy("cityID", cityID),
+            "stock",
+            stock
+          );
+        },
+      });
     },
   },
 });
