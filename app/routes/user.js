@@ -3,7 +3,7 @@ import Ember from "ember";
 export default Ember.Route.extend({
   service: Ember.inject.service("common-service"),
   beforeModel() {
-    if (!localStorage.getItem("user_id")) {
+    if (!localStorage.getItem("accessLevel") == 1) {
       this.transitionTo("accounts");
     }
   },

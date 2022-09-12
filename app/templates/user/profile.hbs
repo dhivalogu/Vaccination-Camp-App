@@ -39,10 +39,10 @@
           name="Mobile"
           value=model.mobile
         }}
-        <button class="button button--primary" {{action "logout"}}>
+        {{#link-to "logout" class="button button--primary"}}
           {{material-icon icon="logout"}}
           Log Out
-        </button>
+        {{/link-to}}
       </div>
     </div>
   </div>

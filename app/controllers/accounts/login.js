@@ -33,6 +33,7 @@ export default Ember.Controller.extend({
             let response = JSON.parse(data);
             console.log(response);
             localStorage.setItem("user_id", response.username);
+            localStorage.setItem("accessLevel", response.accessLevel);
             if (response.accessLevel == "2") {
               this.transitionToRoute("admin.manage");
             } else if (response.accessLevel == "1") {

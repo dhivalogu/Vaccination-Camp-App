@@ -5,7 +5,6 @@ export default Ember.Component.extend({
   didReceiveAttrs() {
     $.getJSON("/assets/json/cities.json", (data) => {
       this.set("city", data);
-      this.set("cityName", data[0].name);
       this.set("stock", 200);
       this.filterExistingCity();
     });
@@ -17,6 +16,7 @@ export default Ember.Component.extend({
       return !cityArray.includes(city.name);
     });
     this.set("city", filteredCities);
+    this.set("cityName", this.get("city")[0].name);
   },
   actions: {
     closeModal() {
@@ -34,6 +34,7 @@ export default Ember.Component.extend({
         cityName: this.get("cityName"),
         stock: this.get("stock"),
       });
+      console.log(requestJSON);
       $.post(
         this.get("service").getRequestURL() + "/cities",
         requestJSON,

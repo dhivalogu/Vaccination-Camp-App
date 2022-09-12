@@ -1,21 +1,21 @@
 <div class="add-city__modal">
-  <div class="form-container">
+  <form {{action "addCity" on="submit"}}>
+    <div class="form-container">
 
-    <select
-      class="select-field"
-      onchange={{action "selectCity" value="target.value"}}
-    >
-      {{#each city as |city|}}
-        <option value={{city.name}}>{{city.name}}</option>
-      {{/each}}
-    </select>
-    <div class="input-field">
-      <div class="label">Stock</div>
-      {{input type="number" value=stock min="200"}}
+      <select
+        class="select-field"
+        onchange={{action "selectCity" value="target.value"}}
+      >
+        {{#each city as |city|}}
+          <option value={{city.name}}>{{city.name}}</option>
+        {{/each}}
+      </select>
+      <div class="input-field">
+        <div class="label">Stock</div>
+        {{input type="number" value=stock min="200"}}
+      </div>
+      <button class="button button--primary">Add City</button>
+      <div class="action">{{material-icon icon="cancel"}}</div>
     </div>
-    <button class="button button--primary" {{action "addCity"}}>Add City</button>
-    <div class="action" {{action "closeModal"}}>{{material-icon
-        icon="cancel"
-      }}</div>
-  </div>
+  </form>
 </div>
