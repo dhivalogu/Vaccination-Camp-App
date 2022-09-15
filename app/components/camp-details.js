@@ -12,7 +12,7 @@ export default Ember.Component.extend({
       if (
         this.get("choosenSlot.bookingList").findBy("bookingID", bookingID)[
           "status"
-        ] == "VACCINATED"
+        ] != "VACCINATED"
       ) {
         let requestJSON = JSON.stringify({
           bookingID: bookingID,

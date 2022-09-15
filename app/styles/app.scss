@@ -393,12 +393,16 @@ input {
         margin: 0px 5px 0px 5px;
       }
       .icon {
-        color: rgb(255, 122, 122);
+        color: $primary-color;
         width: 20%;
       }
       .name {
-        color: $primary-color;
+        color: black;
         width: 30%;
+      }
+      .value {
+        color: rgb(255, 122, 122);
+        font-weight: bold;
       }
     }
     .button {
