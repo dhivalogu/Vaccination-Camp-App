@@ -1,0 +1,101 @@
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    form {
+      width: 100%;
+      @include m.flex-center;
+    }
+    .select-field {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      height: 20%;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      border-radius: 15px;
+      .name {
+        @include m.flex-center;
+        width: 50%;
+        margin: 15px;
+      }
+      select {
+        height: 80%;
+        width: 50%;
+        border-radius: 15px;
+        background: linear-gradient(
+          to bottom,
+          $primary-color,
+          rgb(121, 181, 255)
+        );
+        font-size: 0.9rem;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        @include m.flex-center;
+      }
+      option {
+        color: black;
+        background-color: #ffd9d9;
+        border-radius: 15px;
+      }
+    }
+    .brand__header {
+      font-family: "Secular One", sans-serif;
+      width: 100%;
+      @include m.flex-center;
+    }
+    .header__title {
+      font-family: "Inter", sans-serif;
+      font-size: 1.2rem;
+      height: 10%;
+      @include m.flex-center;
+    }
+    .form__input {
+      margin: 2em;
+      @include m.flex-center;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  form {
+    @include m.flex-center;
+    .form-input {
+      @include m.flex-center;
+      flex-direction: column;
+    }
+  }
+  .input-field {
+    width: 50%;
+    margin: 0.5rem;
+    height: 60px;
+    @include m.flex-center;
+    flex-direction: column;
+    .label {
+      align-self: flex-start;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: $primary-color;
+    }
+    input {
+      border: 2px solid gray;
+      box-shadow: 0px 0px 2px 1px rgb(210, 210, 210);
+      border-radius: 5px;
+      width: 100%;
+      height: 50%;
+      overflow: hidden;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      &:focus {
+        border: 2px solid $primary-color;
+        background-color: #000000;
+        color: white;
+      }
+    }
+  }

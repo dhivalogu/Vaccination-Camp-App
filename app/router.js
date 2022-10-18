@@ -7,6 +7,7 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('accounts',{path:'/VaccinationApp/'});
   this.route('accounts', function() {
     this.route('login');
     this.route('register');

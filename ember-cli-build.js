@@ -5,11 +5,36 @@ const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 module.exports = function(defaults) {
   let app = new EmberApp(defaults, {
-    sassOptions:{
-    	extension:'scss'
-    }
+    fingerprint : {
+			enabled : false
+		},
+		sourcemaps : {
+			enabled : false
+		},
+    outputPaths : {
+      fingerprint : {
+			enabled : false
+		},
+		sourcemaps : {
+			enabled : false
+		},
+			app : {
+				js : 'assets/vaccination-app.js',// No I18N
+				css : {
+					app:'assets/vaccination-app.css',
+				}
+			},
+			vendor : {
+				css : 'assets/vendor.css',
+				js : 'assets/vendor.js'
+			}
+		},
+		sassOptions: {
+	      extension: 'scss',// No I18N
+	      includePaths: [ 'app/styles' ]// No I18N
+	    }
   });
-
+  app.options.storeConfigInMeta = false;
   // Use `app.import` to add additional libraries to the generated
   // output files.
   //

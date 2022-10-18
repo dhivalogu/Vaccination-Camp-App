@@ -5,9 +5,11 @@ export default Ember.Controller.extend({
   service: Ember.inject.service("common-service"),
   actions: {
     refresh() {
+      this.set("campAvailable", true);
       this.get("adminController").send("refreshModel");
     },
     addCamp() {
+      console.log("here");
       this.set("campAvailable", false);
     },
     addVaccinatedCount(cityID) {

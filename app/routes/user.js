@@ -3,15 +3,28 @@ import Ember from "ember";
 export default Ember.Route.extend({
   service: Ember.inject.service("common-service"),
   beforeModel() {
-    if (!localStorage.getItem("accessLevel") == 1) {
+    if(localStorage.getItem("user"))
+    {
+      if(localStorage.getItem("accessLevel")==2)
+      {
+        this.transitionTo("admin.manage")
+      }
+    }
+    else
+    {
       this.transitionTo("accounts");
     }
   },
   model() {
+    $.ajaxSetup({
+      crossDomain: true,
+      xhrFields: {
+          withCredentials: true
+      }
+  });
     return $.get(
       this.get("service").getRequestURL() +
-        "/people/" +
-        localStorage.getItem("user_id")
+        "/people/" 
     );
   },
   setupController(controller, model) {

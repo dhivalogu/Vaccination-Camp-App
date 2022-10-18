@@ -1,5 +1,4 @@
 import Ember from "ember";
-
 export default Ember.Controller.extend({
   service: Ember.inject.service("common-service"),
   id: "",
@@ -25,6 +24,12 @@ export default Ember.Controller.extend({
           password: this.password,
         });
         console.log(requestJSON);
+        $.ajaxSetup({
+          crossDomain: true,
+          xhrFields: {
+              withCredentials: true
+          }
+      });
         $.post(
           this.get("service").getRequestURL() + "/accounts/authentication",
           requestJSON,
@@ -32,8 +37,9 @@ export default Ember.Controller.extend({
             console.log(data);
             let response = JSON.parse(data);
             console.log(response);
-            localStorage.setItem("user_id", response.username);
+            localStorage.setItem("user", response.username);
             localStorage.setItem("accessLevel", response.accessLevel);
+            debugger;
             if (response.accessLevel == "2") {
               this.transitionToRoute("admin.manage");
             } else if (response.accessLevel == "1") {

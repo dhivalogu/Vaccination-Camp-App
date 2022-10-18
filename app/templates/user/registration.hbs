@@ -20,7 +20,7 @@
               <div class="name">Camp</div>
 
               <select onchange={{action "selectCamp" value="target.value"}}>
-                <option value="none" selected disabled hidden>Select a City</option>
+                <option value="none" selected disabled hidden>Select a Camp</option>
                 {{#each campList as |camp|}}
                   <option value={{camp.campID}}>{{camp.address}}</option>
                 {{/each}}
@@ -31,6 +31,7 @@
               <div class="name">Date</div>
 
               <select onchange={{action "selectDate" value="target.value"}}>
+                <option value="none" selected disabled hidden>Select preferred date</option>
                 {{#each availDate as |date|}}
                   <option value={{date}}>{{date}}</option>
                 {{/each}}
@@ -38,10 +39,11 @@
             </div>
             <div id="regSession" class="select-field hidden">
               <div class="name">Session</div>
+              
               <select
                 onchange={{action "selectSession" value="target.value"}}
-                required
               >
+              <option value="none" selected disabled hidden>Select preferred session</option>
                 {{#each availSession as |session|}}
                   <option value={{session}}>{{session}}</option>
                 {{/each}}
