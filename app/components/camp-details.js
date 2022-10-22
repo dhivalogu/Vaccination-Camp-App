@@ -17,10 +17,12 @@ export default Ember.Component.extend({
         let requestJSON = JSON.stringify({
           bookingID: bookingID,
         });
+        var camp=this.get("choosenCamp");
+        var slot=this.get("choosenSlot");
         $.ajax({
           url:
             this.get("service").getRequestURL() +
-            "/cities/camps/slots/bookings",
+            "/cities/"+camp.cityID+"/camps/"+camp.campID+"/slots/"+slot.slotID+"/bookings/"+bookingID,
           method: "PUT",
           crossDomain: true,
           data: requestJSON,
@@ -43,10 +45,12 @@ export default Ember.Component.extend({
       }
     },
     chooseCamp(campID) {
+      console.log("choosing Camp");
       this.set(
         "choosenCamp",
         this.get("campList").findBy("campID", Number(campID))
       );
+      console.log(this.get("campList").findBy("campID", Number(campID)));
       this.set("choosenSlot", this.get("choosenCamp.slotList")[0]);
       console.log(this.get("choosenCamp"));
     },

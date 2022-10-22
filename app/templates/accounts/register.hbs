@@ -20,6 +20,7 @@
           value=firstName
           pattern="[A-Za-z]{3,15}"
           title="Enter a valid name"
+          required=true
         }}
       </div>
 
@@ -29,11 +30,12 @@
           value=lastName
           pattern="[A-Za-z]{3,15}"
           title="Enter a valid name"
+          required=true
         }}
       </div>
       <div class="input-field">
         <span class="label">Date Of Birth</span>
-        {{input type="date" value=dob max=maxDate}}
+        {{input type="date" value=dob max=maxDate required=true}}
       </div>
       <div class="input-field">
         <span class="label">Mobile</span>
@@ -41,6 +43,7 @@
           value=mobile
           pattern="[1-9]{1}[0-9]{9}"
           title="Enter a valid 10 digit mobile number"
+          required=true
         }}
       </div>
       <div

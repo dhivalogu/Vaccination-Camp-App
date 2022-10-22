@@ -10,12 +10,11 @@ export default Ember.Controller.extend({
         test()
         {
             let requestJSON=JSON.stringify({
-                cityID:this.get('cityID'),
                 address:this.get('address'),
                 beginDate:this.get('fromDate'),
                 endDate:this.get('toDate')
             });
-            let requestURL=this.get('service').getRequestURL()+"/cities/camps";
+            let requestURL=this.get('service').getRequestURL()+"/cities/"+this.get('cityID')+"/camps";
             console.log(requestURL);
             $.post(
                 requestURL,

@@ -17,4 +17,10 @@ export default Ember.Route.extend({
       controller.set("campAvailable", false);
     }
   },
+  actions:{
+    refreshCamp()
+    {
+      this.refresh();
+    }
+  }
 });
