@@ -15,14 +15,14 @@ export default Ember.Component.extend({
   actions: {
     addCamp() {
       let requestJSON = JSON.stringify({
-        cityID: this.get("cityID"),
         address: this.get("address"),
         beginDate: this.get("fromDate"),
         endDate: this.get("toDate"),
       });
       console.log(requestJSON);
-      let requestURL = this.get("service").getRequestURL() + "/cities/camps";
+      let requestURL = this.get("service").getRequestURL() + "/cities/"+this.get("cityID")+"/camps";
       console.log(requestURL);
+      console.log("Before sending Request");
       $.post(requestURL, requestJSON, (data, status) => {
         console.log(data);
         let response = JSON.parse(data);

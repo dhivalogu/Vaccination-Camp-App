@@ -3,9 +3,9 @@ import Ember from "ember";
 export default Ember.Route.extend({
   service: Ember.inject.service("common-service"),
   beforeModel() {
-    if(localStorage.getItem("user"))
+    if(this.get('service').getCookies("user"))
     {
-      if(localStorage.getItem("accessLevel")==2)
+      if(this.get('service').getCookies("accessLevel")==2)
       {
         this.transitionTo("admin.manage")
       }

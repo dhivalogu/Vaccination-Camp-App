@@ -3,10 +3,9 @@ import Ember from "ember";
 export default Ember.Route.extend({
   service: Ember.inject.service("common-service"),
   beforeModel() {
-    debugger;
-    if(localStorage.getItem("user"))
+    if(this.get('service').getCookies("user"))
     {
-      if(localStorage.getItem("accessLevel")==1)
+      if(this.get('service').getCookies("accessLevel")==1)
       {
         this.transitionTo("user")
       }

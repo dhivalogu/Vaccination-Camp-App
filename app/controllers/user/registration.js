@@ -69,13 +69,10 @@ export default Ember.Controller.extend({
       this.set("slotID", slot.slotID);
       let bookingRequest = {
         aadharID: this.get("userData.AadharID"),
-        slotID: this.get("slotID"),
-        campID: this.get("campID"),
-        cityID: this.get("cityID"),
       };
       console.log(bookingRequest);
       $.post(
-        this.get("service").getRequestURL() + "/cities/camps/slots/bookings",
+        this.get("service").getRequestURL() + "/cities/"+this.get("cityID")+"/camps/"+this.get("campID")+"/slots/"+this.get("slotID")+"/bookings",
         JSON.stringify(bookingRequest),
         (response, status) => {
           console.log(response, status);
