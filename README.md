@@ -1,7 +1,8 @@
 # vaccination-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+An ember application for Vaccination Camp Management System where people can register for vaccination,view/download e-certificates and an admin panel to overview the data and install camps in cities and approve vaccination.
+
+For API : https://github.com/dhivalogu/Vaccination-Camp-Backend-Java
 
 ## Prerequisites
 
